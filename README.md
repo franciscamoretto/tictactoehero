@@ -1,12 +1,24 @@
 # tictactoehero
 
-Em domínios com múltiplos objetivos concorrentes, as pessoas enfrentam um desafio básico: como fazer com que sua estratégia seja flexível o suficiente para lidar com circunstâncias variáveis sem perder de vista seus objetivos gerais.
+O jogo Tic-tac-toe Hero é um jogo casual para aplicativos móveis baseado em um jogo clássico de papel e caneta, conhecido em vários países e no Brasil é popularmente conhecido como jogo-da-velha cuja origem é incerta. Neste jogo em específico há varias arenas de jogo-da-velha que são disputadas aleatoriamente. Dois jogadores, um a cada turno jogam em uma das arenas no tabuleiro. A arena é escolhida sorteando um número de 1 à 10, onde o jogador define sua posição em que irá colocar o seu brasão (X ou 0).
+
+O jogo possui três modos de jogo: rápido, médio e hero. A diferença entre eles consiste em:
+1. Número de arenas sendo quatro, seis e nove respectivamente.
+2. O tempo que cada jogador tem para fazer sua jogada, 15, 10, e 5 segundos respectivamente.
+
+
+//Em domínios com múltiplos objetivos concorrentes, as pessoas enfrentam um desafio básico: como //fazer com que sua estratégia seja flexível o suficiente para lidar com circunstâncias //variáveis sem perder de vista seus objetivos gerais.
+
+
+## Objetivo
+
+O objetivo de cada jogador é através de suas jogadas (que consiste no posicionamento estratégico de seus brasoes)  obter mais pontos que o seu adversário.
 
 Gênero:	Jogo Casual
 Jogadores:	2
 Habilidade(s) necessárias: 	Estratégia, táticas, observação e sorte
 
-## Estratégia
+## Jogabilidade
 
 (melhorar baseado na ideia do jogo)
 Analisando o número de possibilidades de forma simplista, existem 362.880 (ou 9!) maneiras de se dispor a cruz e o círculo no tabuleiro, sem considerar jogadas vencedoras. Quando consideramos as combinações vencedoras, existem 255.168 jogos possíveis. Assumindo que 'X' inicia o jogo (se considerar que 'O' inicia, os resultados passam a ser inversos), temos:
