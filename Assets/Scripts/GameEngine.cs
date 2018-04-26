@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tabuleiro : MonoBehaviour {
+public class GameEngine : MonoBehaviour {
 
     /// <summary>
     /// Numero de arenas, minimo de 4 arenas
