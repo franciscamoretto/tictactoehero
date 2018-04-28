@@ -16,9 +16,28 @@ public class GameEngine : MonoBehaviour {
     /// Constante que define o numero de linhas e colunas de uma arena
     /// </summary>
     private const int NUM_ROW_COL = 3;
-	// Use this for initialization
 
-	void Start () {
+    public static GameEngine instance = null;  //Static instance of GameEngine which allows it to be accessed by any other script.
+
+    //Awake is always called before any Start functions
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+        //Sets this to not be destroyed when reloading scene
+        DontDestroyOnLoad(gameObject);        
+    }
+
+
+    // Use this for initialization
+    void Start () {
         createArenas(numArenas);
 	}
 
@@ -39,7 +58,7 @@ public class GameEngine : MonoBehaviour {
     /// <param name="arena">Número da arena</param>
     /// <param name="row">Linha selecionada pelo jogador</param>
     /// <param name="col">Coluna selecionado pelo jogador</param>
-    public void setBrasao(int brasao, int arena, int row, int col)
+    public void SetArms(int brasao, int arena, int row, int col)
     {
         board[row * arena, col * arena] = brasao;
         checkMatchLine(arena, row, col);
