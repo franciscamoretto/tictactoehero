@@ -12,11 +12,49 @@ O jogo possui três modos de jogo: rápido, médio e hero. A diferença entre el
 
 ## Objetivo
 
-O objetivo de cada jogador é através de suas jogadas (que consiste no posicionamento estratégico de seus brasoes)  obter mais pontos que o seu adversário.
+O objetivo de cada jogador é através de suas jogadas (que consiste no posicionamento estratégico de seus brasoes) obter mais pontos que o seu adversário.
 
 Gênero:	Jogo Casual
 Jogadores:	2
 Habilidade(s) necessárias: 	Estratégia, táticas, observação e sorte
+
+## Regras
+
+O tabuleiro possui várias arenas, essas pode ser distribuidas das seguintes maneiras: 
+*Modo fácil: possui 4 arenas, dispostas em uma matriz 2x2 (duas linhas por duas colunas).
+*Modo nomal: possui 6 arenas, dispostas em uma matriz 2x3 (duas linhas por três colunas).
+*Modo hero: possui 9 arenas, dispostas em uma matriz 3x3 (três linhas por três colunas). 
+Cada arena é uma matriz de três linhas por três colunas.
+
+Dois jogadores escolhem uma marcação (brasão) cada um, geralmente um círculo (O) e um xis (X).
+Os jogadores jogam alternadamente por turno, ao começar o turno é escolhido um número aleatório:
+*Modo fácil: 1 à 4.
+*Modo normal: 1 à 6.
+*Modo hero: 1 à 9.
+Após da seleção do número, este corresponde à arena na qual o jogador deverá colocar um brasão em uma posição vazia.
+
+O objetivo é conseguir três brasões em linha, quer horizontal, vertical ou diagonal em uma ou mais arenas. Ao mesmo tempo quando possível, impedir o adversário de completar uma linha, coluna ou diagonal na próxima jogada.
+Quando um jogador conquista o objetivo, costuma-se riscar os três símbolos.
+
+
+## Tempo
+
+O tempo de cada turno do jogador para fazer sua jogada está relacionado ao modo de jogo da partida, cada jogador possui:
+*Modo fácil: 15 segundos.
+*Modo normal: 10 segundos.
+*Modo hero: 5 segundos.
+
+## Pontuação
+
+1. Ganhar: maior pontuação acumulada nos turnos após preenchido o tabuleiro.
+2. Bloquear: Se o oponente tiver duas peças em linha, ponha a terceira para bloqueá-lo desde que o número da arena aleatória permita essa movimentação.
+3. Triângulo: Crie uma oportunidade em que você poderá ganhar mais pontos no tabuleiro de duas maneiras.
+4. Passar a vez: Se o jogador não realizar uma jogada antes do término do tempo de seu turno 
+
+
+## Bonus
+
+
 
 ## Jogabilidade
 
@@ -43,21 +81,3 @@ Ignorando jogadas simétricas (outras jogadas rotacionadas ou refletidas), exist
 3 resultados únicos são empates
 
 
-## Regras
-Se os dois jogadores jogarem sempre da melhor forma, o jogo terminará sempre em empate. A lógica do jogo é muito simples, existem 3 modos de jogo: iniciante, ok, herói - apesar de o número total de possibilidades ser muito grande, a maioria delas é simétrica, além de que as regras são simples. Por esse motivo, é muito comum que o jogo empate (ou "dê velha").
-
-Um jogador pode facilmente jogar um jogo perfeito seguindo as seguintes regras, por ordem de prioridade:
-
-Antes de iniciar o jogo são definidos o modo de jogo e temporizador para cada jogada.
-
-
-Em geral, é melhor jogar no centro e em seguida nos cantos pois há maior possibilidade de bloquear ou vencer.
-1. Ganhar: Se você tem duas peças numa linha, ponha a terceira.
-2. Bloquear: Se o oponente tiver duas peças em linha, ponha a terceira para bloqueá-lo.
-3. Triângulo: Crie uma oportunidade em que você poderá ganhar de duas maneiras.
-4. Bloquear o Triângulo do oponente:
-Opção 1: Crie 2 peças em linha para forçar o oponente a se defender, contanto que não resulte nele criando um triângulo ou vencendo. Por exemplo, se 'X' tem dois cantos opostos do tabuleiro e 'O' tem o centro, 'O' não pode jogar num canto (Jogar no canto nesse cenário criaria um triângulo em que 'X' vence).
-Opção 2: Se existe uma configuração em que o oponente pode formar um triângulo, bloqueiem-no.
-5. Centro: Jogue no centro.
-6. Canto vazio: jogue num canto vazio.
-Em suma, a não ser em condições especiais, o jogador deve ter preferência pela posição central, seguida pelos cantos, seguidos pelas bordas.
