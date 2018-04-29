@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
@@ -18,7 +19,9 @@ public class GameManager : MonoBehaviour {
     public int numOfArenas = 1;
     public Transform mainCanvas;
     public GameObject arenaPrefab;
-    
+    public Text P1Score;
+    public Text P2Score;
+
     private int scoreP1 = 0;
     private int scoreP2 = 0;
     private GameObject[] arenas = null;
@@ -92,9 +95,11 @@ public class GameManager : MonoBehaviour {
         if (player == 0)
         {
             scoreP1 += points;
+            P1Score.text = scoreP1.ToString();
         } else
         {
             scoreP2 += points;
+            P2Score.text = scoreP2.ToString();
         }
     }
 
