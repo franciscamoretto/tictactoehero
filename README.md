@@ -1,6 +1,7 @@
-# tictactoehero
+# Tic-Tac-Toe Hero
 
-O jogo Tic-tac-toe Hero é um jogo casual para aplicativos móveis baseado em um jogo clássico de papel e caneta, conhecido em vários países e no Brasil é popularmente conhecido como jogo-da-velha cuja origem é incerta. Neste jogo em específico há varias arenas de jogo-da-velha que são disputadas aleatoriamente. Dois jogadores, um a cada turno jogam em uma das arenas no tabuleiro. A arena é escolhida sorteando um número de 1 à 10, onde o jogador define sua posição em que irá colocar o seu brasão (X ou 0).
+## Sinópse
+O jogo Tic-tac-toe Hero é um jogo casual para aplicativos móveis baseado em um jogo clássico de papel e caneta, conhecido em vários países e no Brasil é popularmente conhecido como jogo-da-velha cuja origem é incerta. Neste jogo em específico há varias arenas de jogo-da-velha que são disputadas aleatoriamente. Dois jogadores, um a cada turno jogam em uma das arenas no tabuleiro. A arena é escolhida sorteando um número de 1 à 9 onde o jogador define sua posição em que irá colocar o seu brasão (X ou 0).
 
 O jogo possui três modos de jogo: rápido, médio e hero. A diferença entre eles consiste em:
 1. Número de arenas sendo quatro, seis e nove respectivamente.
@@ -9,6 +10,14 @@ O jogo possui três modos de jogo: rápido, médio e hero. A diferença entre el
 
 //Em domínios com múltiplos objetivos concorrentes, as pessoas enfrentam um desafio básico: como //fazer com que sua estratégia seja flexível o suficiente para lidar com circunstâncias //variáveis sem perder de vista seus objetivos gerais.
 
+## Plataforma
+Smart Phones Android de iOS
+
+## Gênero
+Pluzze, Casual
+
+## Público Alvo
+Jovens e Adultos na faixa de 18 a 36 anos que gostam de jogos casuais que envolvem estratégia
 
 ## Objetivo
 
@@ -18,19 +27,22 @@ Gênero:	Jogo Casual
 Jogadores:	2
 Habilidade(s) necessárias: 	Estratégia, táticas, observação e sorte
 
+
+# Game Play
+
 ## Regras
 
 O tabuleiro possui várias arenas, essas pode ser distribuidas das seguintes maneiras: 
-*Modo fácil: possui 4 arenas, dispostas em uma matriz 2x2 (duas linhas por duas colunas).
-*Modo nomal: possui 6 arenas, dispostas em uma matriz 2x3 (duas linhas por três colunas).
-*Modo hero: possui 9 arenas, dispostas em uma matriz 3x3 (três linhas por três colunas). 
+* Modo fácil: possui 4 arenas, dispostas em uma matriz 2x2 (duas linhas por duas colunas).
+* Modo nomal: possui 6 arenas, dispostas em uma matriz 2x3 (duas linhas por três colunas).
+* Modo hero: possui 9 arenas, dispostas em uma matriz 3x3 (três linhas por três colunas). 
 Cada arena é uma matriz de três linhas por três colunas.
 
 Dois jogadores escolhem uma marcação (brasão) cada um, geralmente um círculo (O) e um xis (X).
 Os jogadores jogam alternadamente por turno, ao começar o turno é escolhido um número aleatório:
-*Modo fácil: 1 à 4.
-*Modo normal: 1 à 6.
-*Modo hero: 1 à 9.
+* Modo fácil: 1 à 4.
+* Modo normal: 1 à 6.
+* Modo hero: 1 à 9.
 Após da seleção do número, este corresponde à arena na qual o jogador deverá colocar um brasão em uma posição vazia.
 
 O objetivo é conseguir três brasões em linha, quer horizontal, vertical ou diagonal em uma ou mais arenas. Ao mesmo tempo quando possível, impedir o adversário de completar uma linha, coluna ou diagonal na próxima jogada.
@@ -40,9 +52,9 @@ Quando um jogador conquista o objetivo, costuma-se riscar os três símbolos.
 ## Tempo
 
 O tempo de cada turno do jogador para fazer sua jogada está relacionado ao modo de jogo da partida, cada jogador possui:
-*Modo fácil: 15 segundos.
-*Modo normal: 10 segundos.
-*Modo hero: 5 segundos.
+* Modo fácil: 15 segundos.
+* Modo normal: 10 segundos.
+* Modo hero: 5 segundos.
 
 ## Pontuação
 
@@ -53,8 +65,15 @@ O tempo de cada turno do jogador para fazer sua jogada está relacionado ao modo
 
 
 ## Bonus
+Aleatóriamente aparecerá no tabuleiro um bônus em uma casa vazia, o jogador que conseguir completar uma linha utilizando o bônus como uma de suas casas irá automaticamente ativar seu uso.
 
-
+Os bônus existentes são:
+* x2: multiplica a pontuação jogador por 2 durante 3 rodadas.
+* Troca-troca: permite ao jogador trocar um brasão do adversário que não esteja pontuando em qualquer arena.
+* Embaralhar: embaralha as arenas do tabuleiro.
+* Inverter: inverte o jogo, o que é X passa a ser bola e vice-versa (pontuação continua a mesma).
+* Pensa rápido: diminui o tempo do adversário durante 3 rodadas.
+* Cancela: cancela o efeito do último bonus aplicado do adversário se estiver ainda ativo. (Não cancela o Inverter nem o troca-troca)
 
 ## Jogabilidade
 
@@ -79,5 +98,8 @@ Ignorando jogadas simétricas (outras jogadas rotacionadas ou refletidas), exist
 21 são ganhos por 'O' após 6 movimentos
 23 são ganhos por 'O' após 8 movimentos
 3 resultados únicos são empates
+
+
+# Arte
 
 
