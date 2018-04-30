@@ -12,12 +12,14 @@ public class GameManager : MonoBehaviour {
     public const int ARMS1 = 1;
     // Constante com o valor dos brasão do player 2
     public const int ARMS2 = 2;
+
+    private const int OFFSET = 10;
     // Jogador que está na vez
     public int player = 0;
     public Sprite[] arms = new Sprite[2];
     public Color[] playerColor = new Color[2];
     public int numOfArenas = 1;
-    public Transform mainCanvas;
+    public Transform board;
     public GameObject arenaPrefab;
     public Text P1Score;
     public Text P2Score;
@@ -53,12 +55,21 @@ public class GameManager : MonoBehaviour {
     //Initializes the game for each level.
     void InitGame()
     {
+        this.numOfArenas = (int) Mathf.Pow(numOfArenas, numOfArenas);
         GameEngine.instance.CreateArenas(numOfArenas);
         this.arenas = new GameObject[numOfArenas];
+        Vector3 position = Vector3.zero;
         for (int i = 0; i < numOfArenas; i++)
         {
-            arenas[i] = Instantiate(arenaPrefab, mainCanvas);
-            arenas[i].GetComponent<Arena>().arenaNumber = i + 1;
+            board.transform.position = new Vector3(position.x - (200*i), position.y);
+            GameObject arena = Instantiate(arenaPrefab, board);
+            arena.GetComponent<Arena>().arenaNumber = i + 1; 
+            arenas[i] = arena;
+            arena.transform.localPosition = position;
+            Vector2 size = arena.GetComponent<BoxCollider2D>().size;
+            Vector2 scale = arena.transform.localScale;
+            position = new Vector3( position.x + (size.x * scale.x) + OFFSET, position.y);
+
         }
     }
 
@@ -106,13 +117,13 @@ public class GameManager : MonoBehaviour {
     /// <summary>
     /// Pinta uma linha da arena
     /// </summary>
-    /// <param name="numArena">Número da arena</param>
+    /// <param name="posArena">Posição da arena no tabuleiro</param>
     /// <param name="row">Número da linha</param>
     /// <param name="col">Número da coluna</param>
     /// <param name="dir">Direção da linha</param>
-    public void PaintLine(int numArena, int row, int col, DIRECTION dir)
+    public void PaintLine(Vector2 posArena, int row, int col, DIRECTION dir)
     {
-        GameObject arena = arenas[numArena - 1];
+        GameObject arena = arenas[posArena - 1];
         ArenaField[] fields = arena.GetComponentsInChildren<ArenaField>();
         if (dir.Equals(DIRECTION.horizontal))
         {
