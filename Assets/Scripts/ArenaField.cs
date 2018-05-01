@@ -3,13 +3,14 @@ using UnityEngine.UI;
 
 public class ArenaField : MonoBehaviour {
 
+    public Arena arena;
     public int column;
     public int row;
     public int arms;
 
 	// Use this for initialization
 	void Start () {
-		
+        this.arena = GetComponentInParent<Arena>();
 	}
 	
 	// Update is called once per frame
@@ -27,12 +28,11 @@ public class ArenaField : MonoBehaviour {
 
         int player = manager.player;
         this.arms = player == 0 ? GameManager.ARMS1 : GameManager.ARMS2;
-        int arena = this.GetComponentInParent<Arena>().arenaNumber;
         Image img = GetComponent<Image>();
         img.color = Color.white;
         img.sprite = manager.arms[player];
         this.GetComponent<Button>().interactable = false;
-        engine.SetArms(this.arms, arena, row, column);
+        engine.SetArms(this.arms, this.arena, row, column);
         manager.ChangePlayer();
     }
 

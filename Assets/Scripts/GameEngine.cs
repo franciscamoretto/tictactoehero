@@ -11,7 +11,7 @@ public class GameEngine : MonoBehaviour {
     /// <summary>
     /// Constante que define o numero de linhas e colunas de uma arena
     /// </summary>
-    private const int NUM_ROW_COL = 3;
+    public static int NUM_ROW_COL = 3;
     public int numHorizontalArenas;
     public int numVerticalArenas;
 
@@ -55,27 +55,27 @@ public class GameEngine : MonoBehaviour {
     /// Marca uma posição com o brasão do jogador na arena selecionada
     /// </summary>
     /// <param name="brasao">Valor do brasão X ou 0</param>
-    /// <param name="arena">Posição da arena no tabuleiro</param>
+    /// <param name="arena">Arena no tabuleiro</param>
     /// <param name="row">Linha selecionada pelo jogador</param>
     /// <param name="col">Coluna selecionado pelo jogador</param>
-    public void SetArms(int brasao, Vector2 arena, int row, int col)
+    public void SetArms(int brasao, Arena arena, int row, int col)
     {
-        board[row * (int) arena.x, col * (int)arena.y] = brasao;
+        board[row + (NUM_ROW_COL * arena.row), col + (NUM_ROW_COL * arena.col)] = brasao;
         CheckMatchLine(arena, row, col);
     }
 
     /// <summary>
     /// Verifica a existencia de combinação entre brasões em linhas, colunas e diagonal
     /// </summary>
-    /// <param name="arena">Posição da arena no tabuleiro</param>
+    /// <param name="arena">Arena no tabuleiro</param>
     /// <param name="row">Linha selecionada</param>
     /// <param name="col">Coluna selecionada</param>
     /// <returns></returns>
-    private bool CheckMatchLine(Vector2 arena, int row, int col)
+    private bool CheckMatchLine(Arena arena, int row, int col)
     {
         bool result = false;
-        int localRow = (NUM_ROW_COL * (int)arena.x) + row;
-        int localCol = (NUM_ROW_COL * (int)arena.y) + col;
+        int localRow = (NUM_ROW_COL * arena.row) + row;
+        int localCol = (NUM_ROW_COL * arena.col) + col;
         int arms = board[localRow, localCol];
         // Verifica combinação de brasões entre colunas (linha vertical)
         bool horizontalLine = (col == 0 && board[localRow, localCol + 1] == arms && board[localRow, localCol + 2] == arms) ||
@@ -87,29 +87,55 @@ public class GameEngine : MonoBehaviour {
             (row == 1 && board[localRow - 1, localCol] == arms && board[localRow + 1, localCol] == arms) ||
             (row == 2 && board[localRow - 1, localCol] == arms && board[localRow - 2, localCol] == arms);
 
-        // verifica combinação nas diagonais
-        bool diagonalLine = ((localCol == localRow && col == 0) && board[localCol + 1, localRow + 1] == arms && board[localCol + 2, localRow + 2] == arms) ||
-            ((localCol == localRow && col == 1) && board[localCol - 1, localRow - 1] == arms && board[localCol + 1, localRow + 1] == arms) ||
-            ((localCol == localRow && col == 2) && board[localCol - 1, localRow - 1] == arms && board[localCol - 2, localRow - 2] == arms);
+        // verifica combinação na diagonal primaria da matriz
+        bool primaryDiagonal = ((col == row) && (
+            (col == 0 && board[localRow + 1, localCol + 1] == arms && board[localRow + 2, localCol + 2] == arms) ||
+            (col == 1 && board[localRow - 1, localCol - 1] == arms && board[localRow + 1, localCol + 1] == arms) ||
+            (col == 2 && board[localRow - 1, localCol - 1] == arms && board[localRow - 2, localCol - 2] == arms)
+            ));
+
+        // verifica combinação na diagonal secundária da matriz
+        bool secundaryDiagonal = ((col + row == NUM_ROW_COL - 1) && (
+            (col == 0 && board[localRow - 1, localCol + 1] == arms && board[localRow - 2, localCol + 2] == arms) ||
+            (col == 1 && board[localRow - 1, localCol + 1] == arms && board[localRow + 1, localCol - 1] == arms) ||
+            (col == 2 && board[localRow + 1, localCol - 1] == arms && board[localRow + 2, localCol - 2] == arms) 
+            ));
         
-        if ( verticalLine  || horizontalLine || diagonalLine)
+        if ( verticalLine  || horizontalLine || primaryDiagonal || secundaryDiagonal)
         {
-            GameManager.DIRECTION dir = GameManager.DIRECTION.diagonal;
+            GameManager manager = GameManager.instance;
+            Arena.DIRECTION dir = Arena.DIRECTION.diagonalP;
             if (verticalLine)
             {
-                dir = GameManager.DIRECTION.vertical;
-            } else if (horizontalLine)
-            {
-                dir = GameManager.DIRECTION.horizontal;
+                dir = Arena.DIRECTION.vertical;
+                manager.ScorePoints(30);
+                arena.PaintLine(row, col, dir);
             }
-            GameManager manager = GameManager.instance;
-            manager.ScorePoints(30);
-            manager.PaintLine(arena, localRow, localCol, dir);
+            if (horizontalLine)
+            {
+                dir = Arena.DIRECTION.horizontal;
+                manager.ScorePoints(30);
+                arena.PaintLine(row, col, dir);
+            }
+            if (primaryDiagonal)
+            {
+                dir = Arena.DIRECTION.diagonalP;
+                manager.ScorePoints(30);
+                arena.PaintLine(row, col, dir);
+            }
+            if (secundaryDiagonal)
+            {
+                dir = Arena.DIRECTION.diagonalS;
+                manager.ScorePoints(30);
+                arena.PaintLine(row, col, dir);
+            }
 
             result = true;
         }
-        Debug.Log("Brasão: " + arms);
-        Debug.Log("VerticalLine: " + verticalLine + " HorizontalLine: " + horizontalLine + " DiagonalLine: " + diagonalLine);
+        Debug.Log("Brasão: " + arms + " localRow: " + localRow + " localCol: " + localCol + 
+            " row: " + row + " col: " + col );
+        Debug.Log("VerticalLine: " + verticalLine + " HorizontalLine: " + horizontalLine + " DiagonalP: " + 
+            primaryDiagonal + " diagonalS: " + secundaryDiagonal);
         return result;
     }
 	

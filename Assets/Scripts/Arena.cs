@@ -2,9 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Classe responsável por gerenciar uma arena do tabuleiro
+/// </summary>
 public class Arena : MonoBehaviour {
 
+    public enum DIRECTION { vertical, horizontal, diagonalP, diagonalS };
+
+    /// <summary>
+    /// Número da arena
+    /// </summary>
     public int arenaNumber;
+
+    /// <summary>
+    /// Coluna da arena no tabuleiro
+    /// </summary>
+    public int col;
+
+    /// <summary>
+    /// Linha da coluna no tabuleiro
+    /// </summary>
+    public int row;
 
 	// Use this for initialization
 	void Start () {
@@ -15,4 +33,36 @@ public class Arena : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    /// <summary>
+    /// Pinta uma linha da arena
+    /// </summary
+    /// <param name="row">Número da linha</param>
+    /// <param name="col">Número da coluna</param>
+    /// <param name="dir">Direção da linha</param>
+    public void PaintLine(int row, int col, DIRECTION dir)
+    {
+        Color playerColor = GameManager.instance.GetPlayerColor();
+        ArenaField[] fields = this.GetComponentsInChildren<ArenaField>();
+        int n = GameEngine.NUM_ROW_COL - 1;
+        foreach (ArenaField field in fields)
+        {
+            if (dir.Equals(DIRECTION.horizontal) && field.row == row)
+            {
+                field.PaintMe(playerColor);
+            }
+            else if (dir.Equals(DIRECTION.vertical) && field.column == col)
+            {
+                field.PaintMe(playerColor);
+            }
+            else if (dir.Equals(DIRECTION.diagonalP) && field.row == field.column)
+            {
+                field.PaintMe(playerColor);
+            }
+            else if (dir.Equals(DIRECTION.diagonalS) && (field.row + field.column == n) )
+            {
+                field.PaintMe(playerColor);
+            }
+        }
+    }
 }

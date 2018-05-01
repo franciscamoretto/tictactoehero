@@ -11,7 +11,7 @@ public class Board : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         this.arenas = this.GetComponentsInChildren<Arena>();
-        GameEngine.instance.CreateArenas();
+        GameEngine.instance.CreateArenas(verticalArenas, horizontalArenas);
 	}
 	
 	// Update is called once per frame
