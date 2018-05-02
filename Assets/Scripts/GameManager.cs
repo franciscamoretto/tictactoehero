@@ -80,6 +80,7 @@ public class GameManager : MonoBehaviour {
         {
             this.board = Instantiate(heroBoardPrefab, mainCanvas);
         }
+        this.board.GetComponent<Board>().ChooseArena();
     }
     
 
@@ -104,6 +105,7 @@ public class GameManager : MonoBehaviour {
     public void ChangePlayer()
     {
         this.player = this.player == 0 ? 1 : 0;
+        this.board.GetComponent<Board>().ChooseArena();
     }
 
     /// <summary>
