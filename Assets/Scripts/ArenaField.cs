@@ -23,17 +23,20 @@ public class ArenaField : MonoBehaviour {
     /// </summary>
     public void OnClickField()
     {
-        GameEngine engine = GameEngine.instance;
-        GameManager manager = GameManager.instance;
+        if (arena.isSelected())
+        {
+            GameEngine engine = GameEngine.instance;
+            GameManager manager = GameManager.instance;
 
-        int player = manager.player;
-        this.arms = player == 0 ? GameManager.ARMS1 : GameManager.ARMS2;
-        Image img = GetComponent<Image>();
-        img.color = Color.white;
-        img.sprite = manager.arms[player];
-        this.GetComponent<Button>().interactable = false;
-        engine.SetArms(this.arms, this.arena, row, column);
-        manager.ChangePlayer();
+            int player = manager.player;
+            this.arms = player == 0 ? GameManager.ARMS1 : GameManager.ARMS2;
+            Image img = GetComponent<Image>();
+            img.color = Color.white;
+            img.sprite = manager.arms[player];
+            this.GetComponent<Button>().interactable = false;
+            engine.SetArms(this.arms, this.arena, row, column);
+            manager.ChangePlayer();
+        }
     }
 
     /// <summary>

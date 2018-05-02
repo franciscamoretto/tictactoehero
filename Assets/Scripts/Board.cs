@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Board : MonoBehaviour {
 
-    private Arena[] arenas;
+    private List<Arena> freeArenas;
     public float minRandomTime = 3f;
     public float maxRandomTime = 10f;
     private float endTime = 0f;
@@ -12,42 +12,69 @@ public class Board : MonoBehaviour {
     private float refreshDelay = 0.25f;
     private GameObject p1Selector;
     private GameObject p2Selector;
+    private Arena arena;
+    public int selectedArena = -1;
     public int verticalArenas;
     public int horizontalArenas;
     public GameObject[] arenaSelectors = new GameObject[2];
 
 	// Use this for initialization
 	void Start () {
-        this.arenas = this.GetComponentsInChildren<Arena>();
+        this.freeArenas = new List<Arena>(this.GetComponentsInChildren<Arena>());
         GameEngine.instance.CreateArenas(verticalArenas, horizontalArenas);
         p1Selector = Instantiate(arenaSelectors[0], this.transform);
         p2Selector = Instantiate(arenaSelectors[1], this.transform);
-        p1Selector.transform.localScale = arenas[0].transform.localScale;
-        p2Selector.transform.localScale = arenas[0].transform.localScale;
+        p1Selector.transform.localScale = freeArenas[0].transform.localScale;
+        p2Selector.transform.localScale = freeArenas[0].transform.localScale;
+        ChooseArena();
     }
 	
 	// Update is called once per frame
 	void Update () {
         refreshTimer -= Time.deltaTime;
-        if (this.endTime > Time.fixedTime && refreshTimer <= 0)
+        bool isChoosingArena = this.endTime > Time.fixedTime;
+        //Debug.Log("isChoosing: " + isChoosingArena);
+
+        if (isChoosingArena  && refreshTimer <= 0 && freeArenas.Count > 1)
         {
             refreshTimer = refreshDelay;
-            int iArena = Random.Range(0, arenas.Length);
-            Vector3 position = arenas[iArena].transform.localPosition;
-            Debug.Log("Choosing arena: " + iArena);
-            Debug.Log("start: " + endTime + " time: " + Time.fixedTime);
-            if (GameManager.instance.player == 0)
+            int iArena = Random.Range(0, freeArenas.Count);
+            this.arena = freeArenas[iArena];
+            Debug.Log("Arena: " + arena.arenaNumber + " canselect:" + arena.HasFreeField());
+            if (arena.HasFreeField())
             {
-                p2Selector.SetActive(false);
-                p1Selector.SetActive(true);
-                p1Selector.transform.localPosition = position;
+                Vector3 position = arena.transform.localPosition;
+                if (GameManager.instance.player == 0)
+                {
+                    p2Selector.SetActive(false);
+                    p1Selector.SetActive(true);
+                    p1Selector.transform.localPosition = position;
+                }
+                else
+                {
+                    p1Selector.SetActive(false);
+                    p2Selector.SetActive(true);
+                    p2Selector.transform.localPosition = position;
+                }
+            } else
+            {
+                freeArenas.Remove(arena);
             }
-            else
+             
+        } else if (freeArenas.Count == 1)
+        {
+            this.selectedArena = freeArenas[0].arenaNumber;
+        }
+
+        if (!isChoosingArena)
+        {
+            if (arena.HasFreeField())
             {
-                p1Selector.SetActive(false);
-                p2Selector.SetActive(true);
-                p2Selector.transform.localPosition = position;
-            } 
+                this.selectedArena = arena.arenaNumber;
+            } else
+            {
+                ChooseArena();
+            }
         }
 		
 	}
@@ -57,7 +84,10 @@ public class Board : MonoBehaviour {
     /// </summary>
     public void ChooseArena()
     {
-        float randomTime = Random.Range(minRandomTime, maxRandomTime);
-        this.endTime = Time.fixedTime + randomTime;
+        if (freeArenas.Count > 1)
+        {
+            float randomTime = Random.Range(minRandomTime, maxRandomTime);
+            this.endTime = Time.fixedTime + randomTime;
+        }
     }
 }

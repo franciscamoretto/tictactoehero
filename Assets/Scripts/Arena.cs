@@ -24,15 +24,46 @@ public class Arena : MonoBehaviour {
     /// </summary>
     public int row;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    private ArenaField[] fields;
+
+    // Use this for initialization
+    void Start () {
+        this.fields = this.GetComponentsInChildren<ArenaField>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
+    /// <summary>
+    /// Verifica se a arena pode ser usada pelo jogador
+    /// </summary>
+    /// <returns>true caso possua casas</returns>
+    public bool HasFreeField()
+    {
+        bool hasFreeFields = false;
+
+        foreach(ArenaField field in fields)
+        {
+            hasFreeFields = field.arms == 0;
+            if (hasFreeFields)
+            {
+                break;
+            }
+        }
+
+        return hasFreeFields;
+    }
+
+    /// <summary>
+    /// Verifica se a arena está selecionada no tabuleiro
+    /// </summary>
+    /// <returns>true se estiver selecionada</returns>
+    public bool isSelected()
+    {
+        return GetComponentInParent<Board>().selectedArena == arenaNumber;
+    }
 
     /// <summary>
     /// Pinta uma linha da arena
@@ -43,7 +74,7 @@ public class Arena : MonoBehaviour {
     public void PaintLine(int row, int col, DIRECTION dir)
     {
         Color playerColor = GameManager.instance.GetPlayerColor();
-        ArenaField[] fields = this.GetComponentsInChildren<ArenaField>();
+        
         int n = GameEngine.NUM_ROW_COL - 1;
         foreach (ArenaField field in fields)
         {
