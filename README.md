@@ -60,11 +60,10 @@ O tempo de cada turno do jogador para fazer sua jogada está relacionado ao modo
 ## Pontuação
 
 O jogador pode obter pontuação ao completar três brasões em linha, quer horizontal, vertical ou diagonal. No final da partida serão atribuídos pontos para cada brasão extra que complete linha, quer horizontal, vertical ou diagonal que cruze uma nova arena.
-
+Cada jogador é livre para colocar uma marca em qualquer posição no seu turno, desde que a posição esteja vazia (sem marcas). Ao colocar uma marca no tabuleiro, a jogada passa para o próximo jogador, aonde o processo é repetido até que um dos jogadores vença, ou até o tabuleiro ser completamente preenchido, situação na qual pode ocorrer um empate. 
 A vitória é conquistada através da maior pontuação acumulada nos turnos após preenchido o tabuleiro. É possível bloquear o oponente caso as peças em vertical, horizontal ou diagonal seja preenchido com um brasão para bloqueá-lo desde que o número da arena aleatória permita essa movimentação.
-Analisando o número de possibilidades de forma simplista, existem 362.880 (ou 9!) maneiras de se dispor cada brasão em uma única arena no tabuleiro, sem considerar jogadas vencedoras. Quando consideramos as combinações vencedoras, existem 255.168 jogos possíveis. Assumindo que 'Jogador A' inicia o jogo, se considerar que 'Jogador B' inicia, os resultados passam a ser inversos.
 
-O jogador pode optar como estratégia passar a vez ao término do tempo se o jogador não realizar nenhuma jogada antes do término do tempo de seu turno. 
+Analisando o número de possibilidades de forma simplista, existem 362.880 (ou 9!) maneiras de se dispor cada brasão em uma única arena no tabuleiro, sem considerar jogadas vencedoras. Quando consideramos as combinações vencedoras, existem 255.168 jogos possíveis. Assumindo que 'Jogador A' inicia o jogo, se considerar que 'Jogador B' inicia, os resultados passam a ser inversos. O jogador pode optar como estratégia passar a vez ao término do tempo se o jogador não realizar nenhuma jogada antes do término do tempo de seu turno. 
 
 
 ## Bônus
