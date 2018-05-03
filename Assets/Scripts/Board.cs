@@ -40,44 +40,53 @@ public class Board : MonoBehaviour {
             refreshTimer = refreshDelay;
             int iArena = Random.Range(0, freeArenas.Count);
             this.arena = freeArenas[iArena];
-            Debug.Log("Arena: " + arena.arenaNumber + " canselect:" + arena.HasFreeField());
             if (arena.HasFreeField())
             {
-                Vector3 position = arena.transform.localPosition;
-                if (GameManager.instance.player == 0)
-                {
-                    p2Selector.SetActive(false);
-                    p1Selector.SetActive(true);
-                    p1Selector.transform.localPosition = position;
-                }
-                else
-                {
-                    p1Selector.SetActive(false);
-                    p2Selector.SetActive(true);
-                    p2Selector.transform.localPosition = position;
-                }
+                PaintSelectedArena(this.arena);    
             } else
             {
-                freeArenas.Remove(arena);
+                freeArenas.Remove(this.arena);
             }
              
         } else if (freeArenas.Count == 1)
         {
-            this.selectedArena = freeArenas[0].arenaNumber;
+            this.arena = this.freeArenas[0];
+            this.selectedArena = this.arena.arenaNumber;
+            PaintSelectedArena(this.arena);
         }
 
         if (!isChoosingArena)
         {
             if (arena.HasFreeField())
             {
-                this.selectedArena = arena.arenaNumber;
+                this.selectedArena = this.arena.arenaNumber;
             } else
             {
                 ChooseArena();
             }
         }
-		
 	}
+
+    /// <summary>
+    /// Pinta a arena selecionada
+    /// </summary>
+    /// <param name="arena">arena a ser selecionada</param>
+    private void PaintSelectedArena(Arena arena)
+    {
+        Vector3 position = arena.transform.localPosition;
+        if (GameManager.instance.player == 0)
+        {
+            p2Selector.SetActive(false);
+            p1Selector.SetActive(true);
+            p1Selector.transform.localPosition = position;
+        }
+        else
+        {
+            p1Selector.SetActive(false);
+            p2Selector.SetActive(true);
+            p2Selector.transform.localPosition = position;
+        }
+    }
 
     /// <summary>
     /// Inicia a escolha ramdomica da arena
