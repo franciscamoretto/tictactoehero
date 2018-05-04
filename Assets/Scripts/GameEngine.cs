@@ -77,29 +77,29 @@ public class GameEngine : MonoBehaviour {
         int localRow = (NUM_ROW_COL * arena.row) + row;
         int localCol = (NUM_ROW_COL * arena.col) + col;
         int arms = board[localRow, localCol];
+        int startRow = NUM_ROW_COL * arena.row;
+        int startCol = NUM_ROW_COL * arena.col;
+
         // Verifica combinação de brasões entre colunas (linha vertical)
-        bool horizontalLine = (col == 0 && board[localRow, localCol + 1] == arms && board[localRow, localCol + 2] == arms) ||
-            (col == 1 && board[localRow, localCol - 1] == arms && board[localRow, localCol + 1] == arms) ||
-            (col == 2 && board[localRow, localCol - 1] == arms && board[localRow, localCol - 2] == arms);
-        
+        bool horizontalLine = board[localRow, startCol] == arms && 
+            board[localRow, startCol + 1] == arms && 
+            board[localRow, startCol + 2] == arms;
+
         // Verifica combinação de brasões entre linhas (linha horizontal)
-        bool verticalLine = (row == 0 && board[localRow + 1, localCol] == arms && board[localRow + 2, localCol] == arms) ||
-            (row == 1 && board[localRow - 1, localCol] == arms && board[localRow + 1, localCol] == arms) ||
-            (row == 2 && board[localRow - 1, localCol] == arms && board[localRow - 2, localCol] == arms);
+        bool verticalLine = board[startRow, localCol] == arms && 
+            board[startRow + 1, localCol] == arms && 
+            board[startRow + 2, localCol] == arms;
 
         // verifica combinação na diagonal primaria da matriz
-        bool primaryDiagonal = ((col == row) && (
-            (col == 0 && board[localRow + 1, localCol + 1] == arms && board[localRow + 2, localCol + 2] == arms) ||
-            (col == 1 && board[localRow - 1, localCol - 1] == arms && board[localRow + 1, localCol + 1] == arms) ||
-            (col == 2 && board[localRow - 1, localCol - 1] == arms && board[localRow - 2, localCol - 2] == arms)
-            ));
+        bool primaryDiagonal = board[startRow, startCol] == arms && 
+            board[startRow + 1, startCol + 1] == arms && 
+            board[startRow + 2, startCol + 2] == arms;
 
         // verifica combinação na diagonal secundária da matriz
-        bool secundaryDiagonal = ((col + row == NUM_ROW_COL - 1) && (
-            (col == 0 && board[localRow - 1, localCol + 1] == arms && board[localRow - 2, localCol + 2] == arms) ||
-            (col == 1 && board[localRow - 1, localCol + 1] == arms && board[localRow + 1, localCol - 1] == arms) ||
-            (col == 2 && board[localRow + 1, localCol - 1] == arms && board[localRow + 2, localCol - 2] == arms) 
-            ));
+        bool secundaryDiagonal = board[startRow + NUM_ROW_COL - 1, startCol] == arms && 
+            board[startRow + 1, startCol + 1] == arms && 
+            board[startRow, startCol + NUM_ROW_COL - 1] == arms;
+ 
         
         if ( verticalLine  || horizontalLine || primaryDiagonal || secundaryDiagonal)
         {
@@ -132,11 +132,30 @@ public class GameEngine : MonoBehaviour {
 
             result = true;
         }
-        Debug.Log("Brasão: " + arms + " localRow: " + localRow + " localCol: " + localCol + 
-            " row: " + row + " col: " + col );
-        Debug.Log("VerticalLine: " + verticalLine + " HorizontalLine: " + horizontalLine + " DiagonalP: " + 
-            primaryDiagonal + " diagonalS: " + secundaryDiagonal);
         return result;
+    }
+
+
+    private void CountExtraScore()
+    {
+        int previewArms = -1;
+        int arms = 0;
+        int count = 0;
+        for (int row = 0; row < numHorizontalArenas * NUM_ROW_COL; row++)
+        {
+            for (int col = 0; col < numVerticalArenas * NUM_ROW_COL; row++)
+            {
+                arms = board[row, col];
+                if (previewArms == arms)
+                {
+                    count++;
+                } else
+                {
+                    previewArms = arms;
+                    count = 0;
+                }
+            }
+        }
     }
 	
 	// Update is called once per frame
