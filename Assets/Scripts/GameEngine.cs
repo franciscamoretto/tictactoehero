@@ -135,15 +135,26 @@ public class GameEngine : MonoBehaviour {
         return result;
     }
 
-
-    private void CountExtraScore()
+    /// <summary>
+    /// Conta o número de pontos extras do jogador
+    /// </summary>
+    public void CountExtraPoints()
     {
         int previewArms = -1;
         int arms = 0;
-        int count = 0;
+        int count = 1;
+        int[] firstPos = new int[2];
+
+        Debug.Log("Horizontal");
         for (int row = 0; row < numHorizontalArenas * NUM_ROW_COL; row++)
         {
-            for (int col = 0; col < numVerticalArenas * NUM_ROW_COL; row++)
+            previewArms = -1;
+            if (count >= 3)
+            {
+                int player = arms == GameManager.ARMS1 ? 0 : 1;
+                ScoreExtraPoints(firstPos, count, Arena.DIRECTION.horizontal, player);
+            }
+            for (int col = 0; col < numVerticalArenas * NUM_ROW_COL; col++)
             {
                 arms = board[row, col];
                 if (previewArms == arms)
@@ -151,11 +162,83 @@ public class GameEngine : MonoBehaviour {
                     count++;
                 } else
                 {
+                    int player = arms == GameManager.ARMS1 ? 0 : 1;
+                    ScoreExtraPoints(firstPos, count, Arena.DIRECTION.horizontal, player);
                     previewArms = arms;
-                    count = 0;
+                    count = 1;
+                    firstPos[0] = row;
+                    firstPos[1] = col;
                 }
             }
         }
+
+        Debug.Log("Vertical");
+        for (int col = 0; col < numVerticalArenas * NUM_ROW_COL; col++)
+        {
+            previewArms = -1;
+            if (count >= 3)
+            {
+                int player = arms == GameManager.ARMS1 ? 0 : 1;
+                ScoreExtraPoints(firstPos, count, Arena.DIRECTION.vertical, player);
+            }
+            for (int row = 0; row < numHorizontalArenas * NUM_ROW_COL; row++)
+            {
+                arms = board[row, col];
+                if (previewArms == arms)
+                {
+                    count++;
+                }
+                else
+                {
+                    int player = arms == GameManager.ARMS1 ? 0 : 1;
+                    ScoreExtraPoints(firstPos, count, Arena.DIRECTION.vertical, player);
+                    previewArms = arms;
+                    count = 1;
+                    firstPos[0] = row;
+                    firstPos[1] = col;
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// Marca os pontos extras se existir linhas extras
+    /// </summary>
+    /// <param name="firstPos">int[] - vetor com os valor da linha e coluna do primeiro brasão encontrado</param>
+    /// <param name="count">int - número de repetições do brasão</param>
+    /// <param name="dir">Arena.DIRECTION - direção da linha</param>
+    private void ScoreExtraPoints(int[] firstPos, int count, Arena.DIRECTION dir, int player)
+    {
+        bool hasScore = false;
+        if (count >= 3 )
+        {
+            if (dir.Equals(Arena.DIRECTION.horizontal))
+            {
+                hasScore = IsExtraPoint(firstPos[1], count);
+            }
+            if (dir.Equals(Arena.DIRECTION.vertical))
+            {
+                hasScore = IsExtraPoint(firstPos[0], count);
+            }
+        }
+
+        if (hasScore)
+        {
+            int points = 5 * count;
+            GameManager.instance.ScorePoints(points, player);
+        }
+    }
+
+    /// <summary>
+    /// Verifica se a linha inicia em uma arena e termina em outra
+    /// </summary>
+    /// <param name="startPos">Primeira posição do brasão </param>
+    /// <param name="count">Número de repetições do brasão</param>
+    /// <returns>True se a linha iniciar em uma arena e terminar em outra</returns>
+    private bool IsExtraPoint(int startPos, int count)
+    {
+        int lastPos = startPos + count - 1;
+        return ((int)startPos / 3 != (int)lastPos / 3);
     }
 	
 	// Update is called once per frame

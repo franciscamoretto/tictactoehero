@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour {
     public GameObject easyBoardPrefab;
     public GameObject mediumBoardPrefab;
     public GameObject heroBoardPrefab;
+    public bool isGameEnds = false;
 
     private int scoreP1 = 0;
     private int scoreP2 = 0;
@@ -58,8 +59,30 @@ public class GameManager : MonoBehaviour {
     //Initializes the game for each level.
     void InitGame()
     {
-
+        this.isGameEnds = false;
+        this.P1Score.text = "000";
+        this.P2Score.text = "000";
+        this.scoreP1 = 0;
+        this.scoreP2 = 0;
     }
+
+    /// <summary>
+    /// Finaliza o jogo
+    /// </summary>
+    public void FinishGame()
+    {
+        this.isGameEnds = true;
+        GameEngine.instance.CountExtraPoints();
+        if (scoreP1 > scoreP2)
+        {
+            Debug.Log("Player 1 Wins");
+            // TODO: Player 1 Wins
+        } else
+        {
+            Debug.Log("Player 1 Wins");
+            // TODO: Player 2 Wins
+        }
+    } 
 
     /// <summary>
     /// Inicia um novo jogo
@@ -108,6 +131,17 @@ public class GameManager : MonoBehaviour {
     }
 
     /// <summary>
+    /// Marca pontos no placar do jogador selecionado
+    /// </summary>
+    /// <param name="points">Número de pontos</param>
+    /// <param name="player">Jogador</param>
+    public void ScorePoints(int points, int player)
+    {
+        this.player = player;
+        ScorePoints(points);
+    }
+
+    /// <summary>
     /// Marca pontos no placar do jogador atual
     /// </summary>
     /// <param name="points">Número de pontos</param>
@@ -116,9 +150,11 @@ public class GameManager : MonoBehaviour {
         if (player == 0)
         {
             scoreP1 += points;
+            Debug.Log("Player0" + "points:" + points + "Total:" + scoreP1);
             P1Score.text = scoreP1.ToString();
         } else
         {
+            Debug.Log("Player1" + "points:" + points + "Total:" + scoreP2);
             scoreP2 += points;
             P2Score.text = scoreP2.ToString();
         }

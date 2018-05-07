@@ -480,12 +480,13 @@ MonoBehaviour:
     type: 2}
   P1Score: {fileID: 1214068558}
   P2Score: {fileID: 1960163983}
-  easyBoardPrefab: {fileID: 1789929947943848, guid: ac7afb93368c55441a6ecf732b9e8718,
+  easyBoardPrefab: {fileID: 1225447405795248, guid: 502a844a921d53a43b54870c93df1dbb,
     type: 2}
   mediumBoardPrefab: {fileID: 1789929947943848, guid: ac7afb93368c55441a6ecf732b9e8718,
     type: 2}
   heroBoardPrefab: {fileID: 1789929947943848, guid: ac7afb93368c55441a6ecf732b9e8718,
     type: 2}
+  isGameEnds: 0
 --- !u!4 &1361606429
 Transform:
   m_ObjectHideFlags: 0

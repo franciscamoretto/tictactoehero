@@ -53,6 +53,10 @@ public class Board : MonoBehaviour {
             this.arena = this.freeArenas[0];
             this.selectedArena = this.arena.arenaNumber;
             PaintSelectedArena(this.arena);
+            if (!arena.HasFreeField() && !GameManager.instance.isGameEnds)
+            {
+                GameManager.instance.FinishGame();
+            }
         }
 
         if (!isChoosingArena)
