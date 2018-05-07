@@ -140,62 +140,64 @@ public class GameEngine : MonoBehaviour {
     /// </summary>
     public void CountExtraPoints()
     {
+        VerifyExtraLines(Arena.DIRECTION.horizontal);
+        VerifyExtraLines(Arena.DIRECTION.vertical);
+    }
+
+    /// <summary>
+    /// Verifica se as linhas do tabuleiro possuem pontos extras
+    /// </summary>
+    /// <param name="dir">Direçãodas linhas</param>
+    private void VerifyExtraLines(Arena.DIRECTION dir)
+    {
         int previewArms = -1;
         int arms = 0;
         int count = 1;
         int[] firstPos = new int[2];
+        int totalA, totalB = 0;
 
-        Debug.Log("Horizontal");
-        for (int row = 0; row < numHorizontalArenas * NUM_ROW_COL; row++)
+        if (dir.Equals(Arena.DIRECTION.horizontal))
         {
-            previewArms = -1;
-            if (count >= 3)
-            {
-                int player = arms == GameManager.ARMS1 ? 0 : 1;
-                ScoreExtraPoints(firstPos, count, Arena.DIRECTION.horizontal, player);
-            }
-            for (int col = 0; col < numVerticalArenas * NUM_ROW_COL; col++)
-            {
-                arms = board[row, col];
-                if (previewArms == arms)
-                {
-                    count++;
-                } else
-                {
-                    int player = arms == GameManager.ARMS1 ? 0 : 1;
-                    ScoreExtraPoints(firstPos, count, Arena.DIRECTION.horizontal, player);
-                    previewArms = arms;
-                    count = 1;
-                    firstPos[0] = row;
-                    firstPos[1] = col;
-                }
-            }
+            totalA = this.numHorizontalArenas * NUM_ROW_COL;
+            totalB = this.numVerticalArenas* NUM_ROW_COL;
+        } else
+        {
+            totalA = this.numVerticalArenas * NUM_ROW_COL;
+            totalB = this.numHorizontalArenas * NUM_ROW_COL;
         }
 
-        Debug.Log("Vertical");
-        for (int col = 0; col < numVerticalArenas * NUM_ROW_COL; col++)
+        Debug.Log("Verificando linhas " + dir.ToString());
+        for (int i = 0; i < totalA; i++)
         {
             previewArms = -1;
             if (count >= 3)
             {
                 int player = arms == GameManager.ARMS1 ? 0 : 1;
-                ScoreExtraPoints(firstPos, count, Arena.DIRECTION.vertical, player);
+                ScoreExtraPoints(firstPos, count, dir, player);
+                count = 0;
             }
-            for (int row = 0; row < numHorizontalArenas * NUM_ROW_COL; row++)
+            for (int j = 0; j < totalB; j++)
             {
-                arms = board[row, col];
+                if (dir.Equals(Arena.DIRECTION.horizontal))
+                {
+                    arms = board[i, j];
+                } else
+                {
+                    arms = board[j, i];
+                }
                 if (previewArms == arms)
                 {
                     count++;
                 }
                 else
                 {
-                    int player = arms == GameManager.ARMS1 ? 0 : 1;
-                    ScoreExtraPoints(firstPos, count, Arena.DIRECTION.vertical, player);
+                    int player = previewArms == GameManager.ARMS1 ? 0 : 1;
+                    ScoreExtraPoints(firstPos, count, dir, player);
                     previewArms = arms;
                     count = 1;
-                    firstPos[0] = row;
-                    firstPos[1] = col;
+                    firstPos[0] = i;
+                    firstPos[1] = j;
+                    
                 }
             }
         }
@@ -212,13 +214,9 @@ public class GameEngine : MonoBehaviour {
         bool hasScore = false;
         if (count >= 3 )
         {
-            if (dir.Equals(Arena.DIRECTION.horizontal))
+            if (dir.Equals(Arena.DIRECTION.horizontal) || dir.Equals(Arena.DIRECTION.vertical))
             {
                 hasScore = IsExtraPoint(firstPos[1], count);
-            }
-            if (dir.Equals(Arena.DIRECTION.vertical))
-            {
-                hasScore = IsExtraPoint(firstPos[0], count);
             }
         }
 

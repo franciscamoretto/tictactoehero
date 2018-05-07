@@ -150,11 +150,11 @@ public class GameManager : MonoBehaviour {
         if (player == 0)
         {
             scoreP1 += points;
-            Debug.Log("Player0" + "points:" + points + "Total:" + scoreP1);
+            Debug.Log("Player1 points: " + points + " Total: " + scoreP1);
             P1Score.text = scoreP1.ToString();
         } else
         {
-            Debug.Log("Player1" + "points:" + points + "Total:" + scoreP2);
+            Debug.Log("Player2 points: " + points + " Total: " + scoreP2);
             scoreP2 += points;
             P2Score.text = scoreP2.ToString();
         }
