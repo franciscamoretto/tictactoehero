@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Arena
+  - P1Score
+  - P2Score
+  - MainCanvas
   layers:
   - Default
   - TransparentFX

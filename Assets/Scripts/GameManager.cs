@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -17,22 +18,21 @@ public class GameManager : MonoBehaviour {
     public int player = 0;
     public Sprite[] arms = new Sprite[2];
     public Color[] playerColor = new Color[2];
-    public int numOfArenas = 1;
-    public Transform mainCanvas;
     public GameObject arenaPrefab;
-    public Text P1Score;
-    public Text P2Score;
-    public GameObject easyBoardPrefab;
-    public GameObject mediumBoardPrefab;
+    public GameObject quickBoardPrefab;
+    public GameObject normalBoardPrefab;
     public GameObject heroBoardPrefab;
     public bool isGameEnds = false;
+    public GAMELMODE gameMode;
 
+    private Transform mainCanvas;
+    private Text P1Score;
+    private Text P2Score;
     private int scoreP1 = 0;
     private int scoreP2 = 0;
-    private GAMELEVEL gameLevel;
     private GameObject board;
 
-    public enum GAMELEVEL { easy, medium, hero };
+    public enum GAMELMODE { quick, normal, hero };
 
     //Awake is always called before any Start functions
     void Awake()
@@ -51,9 +51,6 @@ public class GameManager : MonoBehaviour {
 
         //Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);
-
-        //Call the InitGame function to initialize the first level 
-        InitGame();
     }
 
     //Initializes the game for each level.
@@ -65,6 +62,33 @@ public class GameManager : MonoBehaviour {
         this.scoreP1 = 0;
         this.scoreP2 = 0;
     }
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    /// <summary>
+    /// Função disparada quando ocorre um evento para carregar uma cena
+    /// </summary>
+    /// <param name="scene"></param>
+    /// <param name="mode"></param>
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {  
+        if (scene.name.Equals("Game"))
+        {
+            this.P1Score = GameObject.FindGameObjectWithTag("P1Score").GetComponent<Text>();
+            this.P2Score = GameObject.FindGameObjectWithTag("P2Score").GetComponent<Text>();
+            this.mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas").transform;
+            NewGame();
+        }
+    }
+
 
     /// <summary>
     /// Finaliza o jogo
@@ -82,22 +106,22 @@ public class GameManager : MonoBehaviour {
             Debug.Log("Player 1 Wins");
             // TODO: Player 2 Wins
         }
-    } 
+    }
+    
 
     /// <summary>
     /// Inicia um novo jogo
     /// </summary>
-    /// <param name="level">Nível do jogo</param>
-    public void NewGame(GAMELEVEL level)
+    public void NewGame()
     {
-        this.gameLevel = level;
-        if (level.Equals(GAMELEVEL.easy))
+        InitGame();
+        if (this.gameMode.Equals(GAMELMODE.quick))
         {
-            this.board = Instantiate(easyBoardPrefab, mainCanvas);
+            this.board = Instantiate(quickBoardPrefab, mainCanvas);
         }
-        else if (level.Equals(GAMELEVEL.medium))
+        else if (this.gameMode.Equals(GAMELMODE.normal))
         {
-            this.board = Instantiate(mediumBoardPrefab, mainCanvas);
+            this.board = Instantiate(normalBoardPrefab, mainCanvas);
         }
         else
         {
@@ -112,8 +136,12 @@ public class GameManager : MonoBehaviour {
     public void RestartGame()
     {
         DestroyImmediate(this.board);
-        InitGame();
-        NewGame(this.gameLevel);
+        NewGame();
+    }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 
     // Update is called once per frame
