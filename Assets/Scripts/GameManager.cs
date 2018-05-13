@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour {
     public bool isGameEnds = false;
     public GAMELMODE gameMode;
 
+    private Timer gameTimer;
     private Transform mainCanvas;
     private Text P1Score;
     private Text P2Score;
@@ -61,16 +62,28 @@ public class GameManager : MonoBehaviour {
         this.P2Score.text = "000";
         this.scoreP1 = 0;
         this.scoreP2 = 0;
+        int time = 4;
+        if (gameMode.Equals(GAMELMODE.quick))
+        {
+            time = 11;
+        } else if (gameMode.Equals(GAMELMODE.normal)) {
+            time = 6;
+        }
+        this.gameTimer.totalTime = time;
     }
 
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+        Timer.OnTimeOut += ChangePlayer;
+        Board.OnBoardChose += StartTimer;
     }
 
     void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+        Timer.OnTimeOut -= ChangePlayer;
+        Board.OnBoardChose -= StartTimer;
     }
 
     /// <summary>
@@ -85,8 +98,15 @@ public class GameManager : MonoBehaviour {
             this.P1Score = GameObject.FindGameObjectWithTag("P1Score").GetComponent<Text>();
             this.P2Score = GameObject.FindGameObjectWithTag("P2Score").GetComponent<Text>();
             this.mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas").transform;
+            this.gameTimer = GameObject.FindObjectOfType<Timer>();
             NewGame();
         }
+    }
+
+    private void StartTimer()
+    {
+        this.gameTimer.ResetTimer();
+        this.gameTimer.StartTimer();
     }
 
 
@@ -155,6 +175,7 @@ public class GameManager : MonoBehaviour {
     public void ChangePlayer()
     {
         this.player = this.player == 0 ? 1 : 0;
+        this.gameTimer.PauseTimer();
         this.board.GetComponent<Board>().ChooseArena();
     }
 
@@ -182,7 +203,6 @@ public class GameManager : MonoBehaviour {
             P1Score.text = scoreP1.ToString();
         } else
         {
-            Debug.Log("Player2 points: " + points + " Total: " + scoreP2);
             scoreP2 += points;
             P2Score.text = scoreP2.ToString();
         }

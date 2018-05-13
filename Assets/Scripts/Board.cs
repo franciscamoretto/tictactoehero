@@ -13,10 +13,13 @@ public class Board : MonoBehaviour {
     private GameObject p1Selector;
     private GameObject p2Selector;
     private Arena arena;
+    private bool selectingArena = false;
     public int selectedArena = -1;
     public int verticalArenas;
     public int horizontalArenas;
     public GameObject[] arenaSelectors = new GameObject[2];
+    public delegate void BoardChosen();
+    public static BoardChosen OnBoardChose;
 
 	// Use this for initialization
 	void Start () {
@@ -50,9 +53,11 @@ public class Board : MonoBehaviour {
              
         } else if (freeArenas.Count == 1)
         {
+
             this.arena = this.freeArenas[0];
             this.selectedArena = this.arena.arenaNumber;
             PaintSelectedArena(this.arena);
+            
             if (!arena.HasFreeField() && !GameManager.instance.isGameEnds)
             {
                 GameManager.instance.FinishGame();
@@ -63,7 +68,12 @@ public class Board : MonoBehaviour {
         {
             if (arena.HasFreeField())
             {
-                this.selectedArena = this.arena.arenaNumber;
+                if (OnBoardChose != null && this.selectingArena)
+                {
+                    this.selectingArena = false;
+                    this.selectedArena = this.arena.arenaNumber;
+                    OnBoardChose();
+                }
             } else
             {
                 ChooseArena();
@@ -97,6 +107,7 @@ public class Board : MonoBehaviour {
     /// </summary>
     public void ChooseArena()
     {
+        this.selectingArena = true;
         if (freeArenas.Count > 1)
         {
             float randomTime = Random.Range(minRandomTime, maxRandomTime);
