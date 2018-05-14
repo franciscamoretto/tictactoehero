@@ -633,6 +633,12 @@ Prefab:
       propertyPath: gameTimer
       value: 
       objectReference: {fileID: 910236556}
+    - target: {fileID: 114234662234104734, guid: afe1f511e4601914684b73790c1bf5db,
+        type: 2}
+      propertyPath: normalBoardPrefab
+      value: 
+      objectReference: {fileID: 1182501267350644, guid: e25b5def4330a8d4d8c96507c1f0f42f,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: afe1f511e4601914684b73790c1bf5db, type: 2}
   m_IsPrefabParent: 0
