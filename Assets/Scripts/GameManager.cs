@@ -203,6 +203,7 @@ public class GameManager : MonoBehaviour {
             P1Score.text = scoreP1.ToString();
         } else
         {
+            Debug.Log("Player2 points: " + points + " Total: " + scoreP2);
             scoreP2 += points;
             P2Score.text = scoreP2.ToString();
         }

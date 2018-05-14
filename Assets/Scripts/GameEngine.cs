@@ -14,6 +14,8 @@ public class GameEngine : MonoBehaviour {
     public static int NUM_ROW_COL = 3;
     public int numHorizontalArenas;
     public int numVerticalArenas;
+    public int linePoint = 30;
+    public int extraPoint = 5;
 
     public static GameEngine instance = null;  //Static instance of GameEngine which allows it to be accessed by any other script.
 
@@ -108,25 +110,25 @@ public class GameEngine : MonoBehaviour {
             if (verticalLine)
             {
                 dir = Arena.DIRECTION.vertical;
-                manager.ScorePoints(30);
+                manager.ScorePoints(this.linePoint);
                 arena.PaintLine(row, col, dir);
             }
             if (horizontalLine)
             {
                 dir = Arena.DIRECTION.horizontal;
-                manager.ScorePoints(30);
+                manager.ScorePoints(this.linePoint);
                 arena.PaintLine(row, col, dir);
             }
             if (primaryDiagonal)
             {
                 dir = Arena.DIRECTION.diagonalP;
-                manager.ScorePoints(30);
+                manager.ScorePoints(this.linePoint);
                 arena.PaintLine(row, col, dir);
             }
             if (secundaryDiagonal)
             {
                 dir = Arena.DIRECTION.diagonalS;
-                manager.ScorePoints(30);
+                manager.ScorePoints(this.linePoint);
                 arena.PaintLine(row, col, dir);
             }
 
@@ -142,6 +144,9 @@ public class GameEngine : MonoBehaviour {
     {
         VerifyExtraLines(Arena.DIRECTION.horizontal);
         VerifyExtraLines(Arena.DIRECTION.vertical);
+        
+        VerifyDiagonalExtraPoint(Arena.DIRECTION.diagonalP);
+        VerifyDiagonalExtraPoint(Arena.DIRECTION.diagonalS);
     }
 
     /// <summary>
@@ -155,6 +160,7 @@ public class GameEngine : MonoBehaviour {
         int count = 1;
         int[] firstPos = new int[2];
         int totalA, totalB = 0;
+        int player = -1;
 
         if (dir.Equals(Arena.DIRECTION.horizontal))
         {
@@ -170,9 +176,9 @@ public class GameEngine : MonoBehaviour {
         for (int i = 0; i < totalA; i++)
         {
             previewArms = -1;
-            if (count >= 3)
+            if (count >= NUM_ROW_COL)
             {
-                int player = arms == GameManager.ARMS1 ? 0 : 1;
+                player = arms == GameManager.ARMS1 ? 0 : 1;
                 ScoreExtraPoints(firstPos, count, dir, player);
                 count = 0;
             }
@@ -191,15 +197,67 @@ public class GameEngine : MonoBehaviour {
                 }
                 else
                 {
-                    int player = previewArms == GameManager.ARMS1 ? 0 : 1;
+                    player = previewArms == GameManager.ARMS1 ? 0 : 1;
                     ScoreExtraPoints(firstPos, count, dir, player);
                     previewArms = arms;
                     count = 1;
                     firstPos[0] = i;
-                    firstPos[1] = j;
-                    
+                    firstPos[1] = j;   
                 }
             }
+        }
+        if (count >= NUM_ROW_COL)
+        {
+            ScoreExtraPoints(firstPos, count, dir, player);
+        }
+    }
+
+    /// <summary>
+    /// Verifica se existe pontos na diagonal da arena
+    /// </summary>
+    private void VerifyDiagonalExtraPoint(Arena.DIRECTION dir)
+    {
+        Debug.Log("Verificando linhas " + dir.ToString());
+        int previewArms = -1;
+        int arms = 0;
+        int count = 1;
+        int[] firstPos = new int[2];
+        int player = -1;
+        for (int i = 0; i < this.numHorizontalArenas * NUM_ROW_COL; i++)
+        {
+            if (dir.Equals(Arena.DIRECTION.diagonalP))
+            {
+                arms = board[i, i];
+            }
+            else if (dir.Equals(Arena.DIRECTION.diagonalS))
+            {   
+                arms = board[i,(NUM_ROW_COL * this.numHorizontalArenas) - 1 - i];
+            }
+            
+            if (previewArms == arms)
+            {
+                count++;
+            }
+            else
+            {
+                player = previewArms == GameManager.ARMS1 ? 0 : 1;
+                ScoreExtraPoints(firstPos, count, Arena.DIRECTION.diagonalP, player);
+                previewArms = arms;
+                count = 1;
+                if (dir.Equals(Arena.DIRECTION.diagonalP))
+                {
+                    firstPos[0] = i;
+                    firstPos[1] = i;
+                } else if (dir.Equals(Arena.DIRECTION.diagonalS))
+                {
+                    firstPos[0] = i;
+                    firstPos[1] = (NUM_ROW_COL * this.numHorizontalArenas) -1 - i;
+                }
+            }
+        }
+        if (count >= NUM_ROW_COL)
+        {
+            ScoreExtraPoints(firstPos, count, dir, player);
         }
     }
 
@@ -212,17 +270,14 @@ public class GameEngine : MonoBehaviour {
     private void ScoreExtraPoints(int[] firstPos, int count, Arena.DIRECTION dir, int player)
     {
         bool hasScore = false;
-        if (count >= 3 )
+        if (count >= NUM_ROW_COL )
         {
-            if (dir.Equals(Arena.DIRECTION.horizontal) || dir.Equals(Arena.DIRECTION.vertical))
-            {
-                hasScore = IsExtraPoint(firstPos[1], count);
-            }
+            hasScore = IsExtraPoint(firstPos[1], count, dir);
         }
 
         if (hasScore)
         {
-            int points = 5 * count;
+            int points = count * this.extraPoint;
             GameManager.instance.ScorePoints(points, player);
         }
     }
@@ -233,14 +288,17 @@ public class GameEngine : MonoBehaviour {
     /// <param name="startPos">Primeira posição do brasão </param>
     /// <param name="count">Número de repetições do brasão</param>
     /// <returns>True se a linha iniciar em uma arena e terminar em outra</returns>
-    private bool IsExtraPoint(int startPos, int count)
+    private bool IsExtraPoint(int startPos, int count, Arena.DIRECTION dir)
     {
-        int lastPos = startPos + count - 1;
+        int lastPos = 0;
+        if (dir.Equals(Arena.DIRECTION.diagonalS))
+        {
+            lastPos = startPos - count + 1;
+        } else
+        {
+            lastPos = startPos + count - 1;
+        }
         return ((int)startPos / 3 != (int)lastPos / 3);
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	 
 }
