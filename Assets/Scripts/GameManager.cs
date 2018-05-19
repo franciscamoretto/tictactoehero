@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour {
     public const int ARMS2 = 2;
 
     private const int OFFSET = 10;
+    public enum GAMELMODE { quick, normal, hero };
+
     // Jogador que está na vez
     public int player = 0;
     public Sprite[] arms = new Sprite[2];
@@ -33,7 +35,6 @@ public class GameManager : MonoBehaviour {
     private int scoreP2 = 0;
     private GameObject board;
 
-    public enum GAMELMODE { quick, normal, hero };
 
     //Awake is always called before any Start functions
     void Awake()
