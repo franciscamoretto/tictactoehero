@@ -630,14 +630,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114234662234104734, guid: afe1f511e4601914684b73790c1bf5db,
         type: 2}
-      propertyPath: gameTimer
+      propertyPath: playerWinMessagePrefab.Array.data[0]
       value: 
-      objectReference: {fileID: 910236556}
+      objectReference: {fileID: 1304482167462918, guid: 099a6b6e77302144aabfa909f5fc62b9,
+        type: 2}
     - target: {fileID: 114234662234104734, guid: afe1f511e4601914684b73790c1bf5db,
         type: 2}
-      propertyPath: normalBoardPrefab
+      propertyPath: playerWinMessagePrefab.Array.data[1]
       value: 
-      objectReference: {fileID: 1182501267350644, guid: e25b5def4330a8d4d8c96507c1f0f42f,
+      objectReference: {fileID: 1595042464398992, guid: bf197934cef71e446923fab5913b9868,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: afe1f511e4601914684b73790c1bf5db, type: 2}

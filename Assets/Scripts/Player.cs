@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     public GameObject armPrefab;
-    public string name;
+    public new string name;
     public int score = 0;
     public Color playerColor;
 

@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour {
     public int player = 0;
     public Sprite[] arms = new Sprite[2];
     public Color[] playerColor = new Color[2];
+    public GameObject[] playerTurnMessagePrefab = new GameObject[2];
+    public GameObject[] playerWinMessagePrefab = new GameObject[2];
     public GameObject arenaPrefab;
     public GameObject quickBoardPrefab;
     public GameObject normalBoardPrefab;
@@ -27,6 +29,7 @@ public class GameManager : MonoBehaviour {
     public bool isGameEnds = false;
     public GAMELMODE gameMode;
 
+    private List<GameObject> playerTurnMsg = new List<GameObject>();
     private Timer gameTimer;
     private Transform mainCanvas;
     private Text P1Score;
@@ -34,6 +37,7 @@ public class GameManager : MonoBehaviour {
     private int scoreP1 = 0;
     private int scoreP2 = 0;
     private GameObject board;
+    private GameObject winMessage;
 
 
     //Awake is always called before any Start functions
@@ -55,23 +59,6 @@ public class GameManager : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
     }
 
-    //Initializes the game for each level.
-    void InitGame()
-    {
-        this.isGameEnds = false;
-        this.P1Score.text = "000";
-        this.P2Score.text = "000";
-        this.scoreP1 = 0;
-        this.scoreP2 = 0;
-        int time = 4;
-        if (gameMode.Equals(GAMELMODE.quick))
-        {
-            time = 11;
-        } else if (gameMode.Equals(GAMELMODE.normal)) {
-            time = 6;
-        }
-        this.gameTimer.totalTime = time;
-    }
 
     void OnEnable()
     {
@@ -101,9 +88,36 @@ public class GameManager : MonoBehaviour {
             this.mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas").transform;
             this.gameTimer = GameObject.FindObjectOfType<Timer>();
             NewGame();
+            foreach (GameObject turnMsg in this.playerTurnMessagePrefab)
+            {
+                GameObject obj = Instantiate(turnMsg, this.mainCanvas);
+                this.playerTurnMsg.Add(obj);
+            }
         }
     }
 
+    //Initializes the game for each level.
+    void InitGame()
+    {
+        this.isGameEnds = false;
+        DestroyImmediate(this.winMessage);
+        this.P1Score.text = "000";
+        this.P2Score.text = "000";
+        this.scoreP1 = 0;
+        this.scoreP2 = 0;
+        int time = 4;
+        if (gameMode.Equals(GAMELMODE.quick))
+        {
+            time = 11;
+        } else if (gameMode.Equals(GAMELMODE.normal)) {
+            time = 6;
+        }
+        this.gameTimer.totalTime = time;
+    }
+
+    /// <summary>
+    /// Inicia o contador de tempo
+    /// </summary>
     private void StartTimer()
     {
         this.gameTimer.ResetTimer();
@@ -116,16 +130,17 @@ public class GameManager : MonoBehaviour {
     /// </summary>
     public void FinishGame()
     {
+        this.playerTurnMsg[this.player].SetActive(false);
         this.isGameEnds = true;
         GameEngine.instance.CountExtraPoints();
         if (scoreP1 > scoreP2)
         {
             Debug.Log("Player 1 Wins");
-            // TODO: Player 1 Wins
+            this.winMessage = Instantiate(this.playerWinMessagePrefab[0], this.mainCanvas);
         } else
         {
             Debug.Log("Player 1 Wins");
-            // TODO: Player 2 Wins
+            this.winMessage = Instantiate(this.playerWinMessagePrefab[1], this.mainCanvas);
         }
     }
     
@@ -177,6 +192,16 @@ public class GameManager : MonoBehaviour {
     {
         this.player = this.player == 0 ? 1 : 0;
         this.gameTimer.PauseTimer();
+        this.playerTurnMsg[this.player].SetActive(true);
+        Invoke("ChoseArena", 1);
+    }
+
+    /// <summary>
+    /// Inicia a escolha da arena
+    /// </summary>
+    private void ChoseArena()
+    {
+        this.playerTurnMsg[this.player].SetActive(false);
         this.board.GetComponent<Board>().ChooseArena();
     }
 
