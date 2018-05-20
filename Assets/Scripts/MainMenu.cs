@@ -52,6 +52,21 @@ public class MainMenu : MonoBehaviour {
         Application.Quit();
     }
 
+    /// <summary>
+    /// Volta ao menu
+    /// </summary>
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
 
-    
+    /// <summary>
+    /// Reinicia o jogo
+    /// </summary>
+    public void RestartGame()
+    {
+        this.manager.RestartGame();
+    }
+
+
 }

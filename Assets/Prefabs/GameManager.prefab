@@ -61,6 +61,9 @@ MonoBehaviour:
   playerTurnMessagePrefab:
   - {fileID: 1008482480736164, guid: c7f056df3a9434940b5168e1bd847665, type: 2}
   - {fileID: 1826381936199084, guid: 1712e83bf02d6a14a9f6083933dec41c, type: 2}
+  playerWinMessagePrefab:
+  - {fileID: 1304482167462918, guid: 099a6b6e77302144aabfa909f5fc62b9, type: 2}
+  - {fileID: 1595042464398992, guid: bf197934cef71e446923fab5913b9868, type: 2}
   arenaPrefab: {fileID: 1278100795520788, guid: 9863179985817414fb1c8b21e5a9ba3e,
     type: 2}
   quickBoardPrefab: {fileID: 1225447405795248, guid: 502a844a921d53a43b54870c93df1dbb,

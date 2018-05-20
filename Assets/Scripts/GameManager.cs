@@ -88,6 +88,7 @@ public class GameManager : MonoBehaviour {
             this.mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas").transform;
             this.gameTimer = GameObject.FindObjectOfType<Timer>();
             NewGame();
+            this.playerTurnMsg.Clear();
             foreach (GameObject turnMsg in this.playerTurnMessagePrefab)
             {
                 GameObject obj = Instantiate(turnMsg, this.mainCanvas);
@@ -163,6 +164,7 @@ public class GameManager : MonoBehaviour {
         {
             this.board = Instantiate(heroBoardPrefab, mainCanvas);
         }
+        this.board.transform.SetAsFirstSibling();
     }
     
 
@@ -175,10 +177,6 @@ public class GameManager : MonoBehaviour {
         NewGame();
     }
 
-    public void BackToMenu()
-    {
-        SceneManager.LoadScene("Menu");
-    }
 
     // Update is called once per frame
     void Update () {
