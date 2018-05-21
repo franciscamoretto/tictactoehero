@@ -95,12 +95,14 @@ public class GameEngine : MonoBehaviour {
         // verifica combinação na diagonal primaria da matriz
         bool primaryDiagonal = board[startRow, startCol] == arms && 
             board[startRow + 1, startCol + 1] == arms && 
-            board[startRow + 2, startCol + 2] == arms;
+            board[startRow + 2, startCol + 2] == arms &&
+            row == col;
 
         // verifica combinação na diagonal secundária da matriz
         bool secundaryDiagonal = board[startRow + NUM_ROW_COL - 1, startCol] == arms && 
             board[startRow + 1, startCol + 1] == arms && 
-            board[startRow, startCol + NUM_ROW_COL - 1] == arms;
+            board[startRow, startCol + NUM_ROW_COL - 1] == arms &&
+            (row + col == NUM_ROW_COL - 1);
  
         
         if ( verticalLine  || horizontalLine || primaryDiagonal || secundaryDiagonal)

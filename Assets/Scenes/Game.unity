@@ -189,7 +189,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2129076671}
+      - m_Target: {fileID: 2131058521}
         m_MethodName: BackToMenu
         m_Mode: 1
         m_Arguments:
@@ -628,17 +628,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114234662234104734, guid: afe1f511e4601914684b73790c1bf5db,
-        type: 2}
-      propertyPath: gameTimer
-      value: 
-      objectReference: {fileID: 910236556}
-    - target: {fileID: 114234662234104734, guid: afe1f511e4601914684b73790c1bf5db,
-        type: 2}
-      propertyPath: normalBoardPrefab
-      value: 
-      objectReference: {fileID: 1182501267350644, guid: e25b5def4330a8d4d8c96507c1f0f42f,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: afe1f511e4601914684b73790c1bf5db, type: 2}
   m_IsPrefabParent: 0
@@ -1044,7 +1033,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2129076671}
+      - m_Target: {fileID: 2131058521}
         m_MethodName: RestartGame
         m_Mode: 1
         m_Arguments:
@@ -1273,12 +1262,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2043831236}
---- !u!114 &2129076671 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114234662234104734, guid: afe1f511e4601914684b73790c1bf5db,
-    type: 2}
-  m_PrefabInternal: {fileID: 961269110}
-  m_Script: {fileID: 11500000, guid: 121bdedf83ec77b4ebf3299a577fd2ec, type: 3}
 --- !u!1 &2131058516
 GameObject:
   m_ObjectHideFlags: 0
@@ -1290,6 +1273,7 @@ GameObject:
   - component: {fileID: 2131058520}
   - component: {fileID: 2131058519}
   - component: {fileID: 2131058518}
+  - component: {fileID: 2131058521}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: MainCanvas
@@ -1377,3 +1361,14 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &2131058521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2131058516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c43c54b50131ac4689f2b8baefe4043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
