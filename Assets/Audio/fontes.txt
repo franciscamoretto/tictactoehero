@@ -1,0 +1,4 @@
+Musicas e efeitos sonoros encontrados no site http://www.freesound.org .
+http://www.freesfx.co.uk
+O arquivo está nomeado no padrão: num_registro-autor_user-nome
+
