@@ -180,7 +180,7 @@ public class GameEngine : MonoBehaviour {
             previewArms = -1;
             if (count >= NUM_ROW_COL)
             {
-                player = arms == GameManager.ARMS1 ? 0 : 1;
+                player = arms == Player.ARMS1 ? 0 : 1;
                 ScoreExtraPoints(firstPos, count, dir, player);
                 count = 0;
             }
@@ -199,7 +199,7 @@ public class GameEngine : MonoBehaviour {
                 }
                 else
                 {
-                    player = previewArms == GameManager.ARMS1 ? 0 : 1;
+                    player = previewArms == Player.ARMS1 ? 0 : 1;
                     ScoreExtraPoints(firstPos, count, dir, player);
                     previewArms = arms;
                     count = 1;
@@ -242,7 +242,7 @@ public class GameEngine : MonoBehaviour {
             }
             else
             {
-                player = previewArms == GameManager.ARMS1 ? 0 : 1;
+                player = previewArms == Player.ARMS1 ? 0 : 1;
                 ScoreExtraPoints(firstPos, count, Arena.DIRECTION.diagonalP, player);
                 previewArms = arms;
                 count = 1;

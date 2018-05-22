@@ -6,22 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
-    public static GameManager instance = null;              //Static instance of GameManager which allows it to be accessed by any other script.
-
-    // Constante com o valor do brasão do player 1
-    public const int ARMS1 = 1;
-    // Constante com o valor dos brasão do player 2
-    public const int ARMS2 = 2;
-
+    public static GameManager instance = null; //Static instance of GameManager which allows it to be accessed by any other script.
     private const int OFFSET = 10;
     public enum GAMELMODE { quick, normal, hero };
 
-    // Jogador que está na vez
-    public int player = 0;
-    public Sprite[] arms = new Sprite[2];
-    public Color[] playerColor = new Color[2];
-    public GameObject[] playerTurnMessagePrefab = new GameObject[2];
-    public GameObject[] playerWinMessagePrefab = new GameObject[2];
     public GameObject arenaPrefab;
     public GameObject quickBoardPrefab;
     public GameObject normalBoardPrefab;
@@ -29,13 +17,11 @@ public class GameManager : MonoBehaviour {
     public bool isGameEnds = false;
     public GAMELMODE gameMode;
 
+    // Jogador que está na vez
+    private Player player;
+    private Player[] players = new Player[2];
     private List<GameObject> playerTurnMsg = new List<GameObject>();
-    private Timer gameTimer;
     private Transform mainCanvas;
-    private Text P1Score;
-    private Text P2Score;
-    private int scoreP1 = 0;
-    private int scoreP2 = 0;
     private GameObject board;
     private GameObject winMessage;
 
@@ -83,17 +69,14 @@ public class GameManager : MonoBehaviour {
     {  
         if (scene.name.Equals("Game"))
         {
-            this.P1Score = GameObject.FindGameObjectWithTag("P1Score").GetComponent<Text>();
-            this.P2Score = GameObject.FindGameObjectWithTag("P2Score").GetComponent<Text>();
-            this.mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas").transform;
-            this.gameTimer = GameObject.FindObjectOfType<Timer>();
-            NewGame();
-            this.playerTurnMsg.Clear();
-            foreach (GameObject turnMsg in this.playerTurnMessagePrefab)
+            Player[] playerList = FindObjectsOfType<Player>();
+            foreach (Player p in playerList)
             {
-                GameObject obj = Instantiate(turnMsg, this.mainCanvas);
-                this.playerTurnMsg.Add(obj);
+                this.players[p.order] = p;
             }
+            this.mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas").transform;            
+            
+            NewGame();
         }
     }
 
@@ -102,56 +85,23 @@ public class GameManager : MonoBehaviour {
     {
         this.isGameEnds = false;
         DestroyImmediate(this.winMessage);
-        this.P1Score.text = "000";
-        this.P2Score.text = "000";
-        this.scoreP1 = 0;
-        this.scoreP2 = 0;
-        int time = 4;
-        if (gameMode.Equals(GAMELMODE.quick))
+        int time = this.board.GetComponent<Board>().turnTime;
+        this.playerTurnMsg.Clear();
+        foreach (Player player in this.players)
         {
-            time = 11;
-        } else if (gameMode.Equals(GAMELMODE.normal)) {
-            time = 6;
+            player.CleanScore();
+            player.timer.totalTime = time;
+            GameObject obj = Instantiate(player.TurnMessagePrefab, this.mainCanvas);
+            this.playerTurnMsg.Add(obj);
         }
-        this.gameTimer.totalTime = time;
+        this.player = this.players[0];
     }
-
-    /// <summary>
-    /// Inicia o contador de tempo
-    /// </summary>
-    private void StartTimer()
-    {
-        this.gameTimer.ResetTimer();
-        this.gameTimer.StartTimer();
-    }
-
-
-    /// <summary>
-    /// Finaliza o jogo
-    /// </summary>
-    public void FinishGame()
-    {
-        this.playerTurnMsg[this.player].SetActive(false);
-        this.isGameEnds = true;
-        GameEngine.instance.CountExtraPoints();
-        if (scoreP1 > scoreP2)
-        {
-            Debug.Log("Player 1 Wins");
-            this.winMessage = Instantiate(this.playerWinMessagePrefab[0], this.mainCanvas);
-        } else
-        {
-            Debug.Log("Player 1 Wins");
-            this.winMessage = Instantiate(this.playerWinMessagePrefab[1], this.mainCanvas);
-        }
-    }
-    
 
     /// <summary>
     /// Inicia um novo jogo
     /// </summary>
     public void NewGame()
     {
-        InitGame();
         if (this.gameMode.Equals(GAMELMODE.quick))
         {
             this.board = Instantiate(quickBoardPrefab, mainCanvas);
@@ -164,10 +114,47 @@ public class GameManager : MonoBehaviour {
         {
             this.board = Instantiate(heroBoardPrefab, mainCanvas);
         }
-        this.board.transform.SetAsFirstSibling();
+        this.board.transform.SetSiblingIndex(1);
+        InitGame();
+    }
+
+
+    /// <summary>
+    /// Finaliza o jogo
+    /// </summary>
+    public void FinishGame()
+    {
+        this.playerTurnMsg[this.player.order].SetActive(false);
+        this.isGameEnds = true;
+        GameEngine.instance.CountExtraPoints();
+        
+        if (this.players[0].score > this.players[1].score)
+        {
+            Debug.Log("Player 1 Wins");
+            this.winMessage = Instantiate(this.players[0].WinMessagePrefab, this.mainCanvas);
+
+        } else if (this.players[0].score > this.players[1].score)
+        {
+            Debug.Log("Player 2 Wins");
+            this.winMessage = Instantiate(this.players[1].WinMessagePrefab, this.mainCanvas);
+
+        } else
+        {
+            // TODO: Draw message
+        }
+        
+    }
+
+    /// <summary>
+    /// Retorna o Player da vez
+    /// </summary>
+    /// <returns>Player</returns>
+    public Player GetPlayer()
+    {
+        return this.player;
     }
     
-
+    
     /// <summary>
     /// Reinicia o jogo
     /// </summary>
@@ -177,20 +164,23 @@ public class GameManager : MonoBehaviour {
         NewGame();
     }
 
-
-    // Update is called once per frame
-    void Update () {
-		
-	}
+    /// <summary>
+    /// Inicia o contador de tempo
+    /// </summary>
+    private void StartTimer()
+    {
+        this.player.timer.ResetTimer();
+        this.player.timer.StartTimer();
+    }
 
     /// <summary>
     /// Altera o player que está jogando
     /// </summary>
     public void ChangePlayer()
     {
-        this.player = this.player == 0 ? 1 : 0;
-        this.gameTimer.PauseTimer();
-        this.playerTurnMsg[this.player].SetActive(true);
+        this.player.timer.PauseTimer();
+        this.player = this.player.order == 0 ? this.players[1] : this.players[0];
+        this.playerTurnMsg[this.player.order].SetActive(true);
         Invoke("ChoseArena", 1);
     }
 
@@ -199,7 +189,7 @@ public class GameManager : MonoBehaviour {
     /// </summary>
     private void ChoseArena()
     {
-        this.playerTurnMsg[this.player].SetActive(false);
+        this.playerTurnMsg[this.player.order].SetActive(false);
         this.board.GetComponent<Board>().ChooseArena();
     }
 
@@ -210,7 +200,7 @@ public class GameManager : MonoBehaviour {
     /// <param name="player">Jogador</param>
     public void ScorePoints(int points, int player)
     {
-        this.player = player;
+        this.player = this.players[player];
         ScorePoints(points);
     }
 
@@ -220,17 +210,7 @@ public class GameManager : MonoBehaviour {
     /// <param name="points">Número de pontos</param>
     public void ScorePoints(int points)
     {
-        if (player == 0)
-        {
-            scoreP1 += points;
-            Debug.Log("Player1 points: " + points + " Total: " + scoreP1);
-            P1Score.text = scoreP1.ToString();
-        } else
-        {
-            Debug.Log("Player2 points: " + points + " Total: " + scoreP2);
-            scoreP2 += points;
-            P2Score.text = scoreP2.ToString();
-        }
+        this.player.UpdateScore(points);
     }
 
     /// <summary>
@@ -239,7 +219,7 @@ public class GameManager : MonoBehaviour {
     /// <returns>Cor do player</returns>
     public Color GetPlayerColor()
     {
-        return this.playerColor[this.player];
+        return this.player.playerColor;
     }
 
 }

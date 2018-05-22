@@ -7910,6 +7910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e5f7b30a216104c8344276efa7f55b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turnTime: 4
   minRandomTime: 1
   maxRandomTime: 3
   selectedArena: -1

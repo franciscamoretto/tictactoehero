@@ -5,6 +5,7 @@ using UnityEngine;
 public class Board : MonoBehaviour {
 
     private List<Arena> freeArenas;
+    public int turnTime = 0;
     public float minRandomTime = 3f;
     public float maxRandomTime = 10f;
     private float endTime = 0f;
@@ -88,7 +89,7 @@ public class Board : MonoBehaviour {
     private void PaintSelectedArena(Arena arena)
     {
         Vector3 position = arena.transform.localPosition;
-        if (GameManager.instance.player == 0)
+        if (GameManager.instance.GetPlayer().order == 0)
         {
             p2Selector.SetActive(false);
             p1Selector.SetActive(true);

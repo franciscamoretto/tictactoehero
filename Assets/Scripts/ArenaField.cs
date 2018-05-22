@@ -28,11 +28,11 @@ public class ArenaField : MonoBehaviour {
             GameEngine engine = GameEngine.instance;
             GameManager manager = GameManager.instance;
 
-            int player = manager.player;
-            this.arms = player == 0 ? GameManager.ARMS1 : GameManager.ARMS2;
+            Player player = manager.GetPlayer();
             Image img = GetComponent<Image>();
             img.color = Color.white;
-            img.sprite = manager.arms[player];
+            img.sprite = player.armsSprite;
+            this.arms = player.arms;
             this.GetComponent<Button>().interactable = false;
             engine.SetArms(this.arms, this.arena, row, column);
             manager.ChangePlayer();
