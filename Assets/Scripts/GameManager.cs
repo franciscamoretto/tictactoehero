@@ -133,7 +133,7 @@ public class GameManager : MonoBehaviour {
             Debug.Log("Player 1 Wins");
             this.winMessage = Instantiate(this.players[0].WinMessagePrefab, this.mainCanvas);
 
-        } else if (this.players[0].score > this.players[1].score)
+        } else if (this.players[0].score < this.players[1].score)
         {
             Debug.Log("Player 2 Wins");
             this.winMessage = Instantiate(this.players[1].WinMessagePrefab, this.mainCanvas);

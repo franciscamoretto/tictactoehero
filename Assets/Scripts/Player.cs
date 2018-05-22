@@ -40,7 +40,7 @@ public class Player : MonoBehaviour {
     public void UpdateScore(int points)
     {
         this.score += points;
-        this.scoreText.text = points.ToString("D3");
+        this.scoreText.text = score.ToString("D3");
     }
 
     /// <summary>
