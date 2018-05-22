@@ -87,8 +87,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Player 2
-  order: 0
-  armsSprite: {fileID: 21300000, guid: 615d65192d3e8dd4f850a3fcb8f59965, type: 3}
+  order: 1
+  armsSprite: {fileID: 21300000, guid: c8b604628a089f64aa3fa370c6cdf090, type: 3}
   arms: 0
   score: 0
   scoreText: {fileID: 114608194761703512}
@@ -98,7 +98,6 @@ MonoBehaviour:
     type: 2}
   WinMessagePrefab: {fileID: 1595042464398992, guid: bf197934cef71e446923fab5913b9868,
     type: 2}
-  turnTime: 0
 --- !u!114 &114559904324479842
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -119,12 +118,12 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: a30f933bed2f6504bae572c0ef6aaeb7, type: 3}
-    m_FontSize: 135
-    m_FontStyle: 0
+    m_Font: {fileID: 12800000, guid: 108396763c63a644483fb0c5d4faf926, type: 3}
+    m_FontSize: 180
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 172
+    m_MaxSize: 180
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -152,12 +151,12 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: a30f933bed2f6504bae572c0ef6aaeb7, type: 3}
-    m_FontSize: 135
-    m_FontStyle: 0
+    m_Font: {fileID: 12800000, guid: 108396763c63a644483fb0c5d4faf926, type: 3}
+    m_FontSize: 180
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 172
+    m_MaxSize: 180
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -192,7 +191,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -1782, y: 3.3002014}
+  m_AnchoredPosition: {x: -1782, y: -20.999817}
   m_SizeDelta: {x: 480, y: 220}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!224 &224665830775103202
@@ -210,7 +209,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -1172, y: 3.2999878}
+  m_AnchoredPosition: {x: -1172, y: -21}
   m_SizeDelta: {x: 480, y: 220}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!224 &224730585586121320
