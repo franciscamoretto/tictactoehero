@@ -55,6 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224720254330027558}
   - component: {fileID: 114492895444554076}
+  - component: {fileID: 212542288602511792}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -155,21 +156,22 @@ MonoBehaviour:
   name: Player 1
   order: 0
   armsSprite:
-  - {fileID: 21300000, guid: f682c89308b4f8b40a8603025e98f7ef, type: 3}
-  - {fileID: 21300000, guid: f7d652e7d7cf1f944a0a8cec328ac5f0, type: 3}
-  - {fileID: 21300000, guid: 8540948f8cdb92e4287969de4dbb45ad, type: 3}
-  - {fileID: 0}
-  - {fileID: 21300000, guid: 12908f6ea3349f94d9de944cf9c1b907, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 21300000, guid: bfe0e7ec8b020f74f837c3e44892d4f7, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: fb1ce7132de20764ea625d60231ef1d1, type: 3}
+  - {fileID: 21300000, guid: bd3d41400786e7140959de312c5dd846, type: 3}
+  - {fileID: 21300000, guid: 49fce2da347580648b02fa302fe491c9, type: 3}
+  - {fileID: 21300000, guid: 6587671ab49f1bd4da4c08fd4c3e3639, type: 3}
+  - {fileID: 21300000, guid: 2c9ff26e02937c941b340d1e623176ac, type: 3}
+  - {fileID: 21300000, guid: c5df88413ad90664fa3f71322e37cf3d, type: 3}
+  - {fileID: 21300000, guid: f37084d3ab695a5449aafaa153a50580, type: 3}
+  - {fileID: 21300000, guid: 72114b3689c5ade439f4a7a5ff2fb36e, type: 3}
+  - {fileID: 21300000, guid: 1fe36cfc32f783542b685aa591e9c3e7, type: 3}
+  - {fileID: 21300000, guid: 00364a980681d7a428eb3b8632983653, type: 3}
+  - {fileID: 21300000, guid: c3b75dce362414c43a7bc62b6e729656, type: 3}
+  - {fileID: 21300000, guid: dbe104186a083a346af9bfbe3f3de3b1, type: 3}
+  - {fileID: 21300000, guid: 21cade05b5aa39b4cacd14b1eade1947, type: 3}
+  - {fileID: 21300000, guid: 012bf06c332a6c54cb1f5766fe7f5f5b, type: 3}
+  - {fileID: 21300000, guid: d635f0e2a2aef2c458568e8efa39086c, type: 3}
+  - {fileID: 21300000, guid: f47e1d53cd11e1241aeebf397ba06548, type: 3}
   arms: 0
   score: 0
   scoreText: {fileID: 114252372175536596}
@@ -179,6 +181,50 @@ MonoBehaviour:
     type: 2}
   WinMessagePrefab: {fileID: 1304482167462918, guid: 099a6b6e77302144aabfa909f5fc62b9,
     type: 2}
+--- !u!212 &212542288602511792
+SpriteRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1228125387551886}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
 --- !u!222 &222534130659254858
 CanvasRenderer:
   m_ObjectHideFlags: 1
