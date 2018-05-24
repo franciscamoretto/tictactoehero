@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour {
     private const int OFFSET = 10;
     public enum GAMELMODE { quick, normal, hero };
 
-    public GameObject arenaPrefab;
     public GameObject quickBoardPrefab;
     public GameObject normalBoardPrefab;
     public GameObject heroBoardPrefab;
@@ -22,9 +21,9 @@ public class GameManager : MonoBehaviour {
     private Player player;
     private Player[] players = new Player[2];
     private List<GameObject> playerTurnMsg = new List<GameObject>();
-    private Transform mainCanvas;
     private GameObject board;
     private GameObject winMessage;
+    private Transform boardArea;
 
 
     //Awake is always called before any Start functions
@@ -75,7 +74,7 @@ public class GameManager : MonoBehaviour {
             {
                 this.players[p.order] = p;
             }
-            this.mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas").transform;            
+            this.boardArea = GameObject.FindGameObjectWithTag("MainCanvas").transform;            
             
             NewGame();
         }
@@ -92,7 +91,7 @@ public class GameManager : MonoBehaviour {
         {
             player.CleanScore();
             player.timer.totalTime = time;
-            GameObject obj = Instantiate(player.TurnMessagePrefab, this.mainCanvas);
+            GameObject obj = Instantiate(player.TurnMessagePrefab, this.boardArea);
             this.playerTurnMsg.Add(obj);
         }
         this.player = this.players[0];
@@ -105,17 +104,17 @@ public class GameManager : MonoBehaviour {
     {
         if (this.gameMode.Equals(GAMELMODE.quick))
         {
-            this.board = Instantiate(quickBoardPrefab, mainCanvas);
+            this.board = Instantiate(quickBoardPrefab, this.boardArea);
         }
         else if (this.gameMode.Equals(GAMELMODE.normal))
         {
-            this.board = Instantiate(normalBoardPrefab, mainCanvas);
+            this.board = Instantiate(normalBoardPrefab, this.boardArea);
         }
         else
         {
-            this.board = Instantiate(heroBoardPrefab, mainCanvas);
+            this.board = Instantiate(heroBoardPrefab, this.boardArea);
         }
-        this.board.transform.SetSiblingIndex(1);
+        this.board.transform.SetAsFirstSibling();
         InitGame();
     }
 
@@ -132,16 +131,16 @@ public class GameManager : MonoBehaviour {
         if (this.players[0].score > this.players[1].score)
         {
             Debug.Log("Player 1 Wins");
-            this.winMessage = Instantiate(this.players[0].WinMessagePrefab, this.mainCanvas);
+            this.winMessage = Instantiate(this.players[0].WinMessagePrefab, this.boardArea);
 
         } else if (this.players[0].score < this.players[1].score)
         {
             Debug.Log("Player 2 Wins");
-            this.winMessage = Instantiate(this.players[1].WinMessagePrefab, this.mainCanvas);
+            this.winMessage = Instantiate(this.players[1].WinMessagePrefab, this.boardArea);
 
         } else
         {
-            this.winMessage = Instantiate(this.DrawMessagePrefab, this.mainCanvas);
+            this.winMessage = Instantiate(this.DrawMessagePrefab, this.boardArea);
         }
         
     }
@@ -173,6 +172,20 @@ public class GameManager : MonoBehaviour {
         this.player.timer.ResetTimer();
         this.player.timer.StartTimer();
     }
+
+    /// <summary>
+    /// Pausa o timer do jogador
+    /// </summary>
+    public void PauseGame(bool pause)
+    {
+        if (pause) {
+            this.player.timer.PauseTimer();
+        } else
+        {
+            this.player.timer.StartTimer();
+        }
+    }
+
 
     /// <summary>
     /// Altera o player que está jogando

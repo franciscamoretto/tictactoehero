@@ -21,6 +21,8 @@ public class Board : MonoBehaviour {
     public GameObject[] arenaSelectors = new GameObject[2];
     public delegate void BoardChosen();
     public static BoardChosen OnBoardChose;
+    public delegate void StartBoardChoosing();
+    public static StartBoardChoosing OnStartBoardChoosing;
 
 	// Use this for initialization
 	void Start () {
@@ -109,6 +111,10 @@ public class Board : MonoBehaviour {
     public void ChooseArena()
     {
         this.selectingArena = true;
+        if (OnStartBoardChoosing != null)
+        {
+            OnStartBoardChoosing();
+        }
         if (freeArenas.Count > 1)
         {
             float randomTime = Random.Range(minRandomTime, maxRandomTime);
