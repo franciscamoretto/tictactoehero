@@ -120,11 +120,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 62371195}
     m_Modifications:
-    - target: {fileID: 114492895444554076, guid: c4a10151b716701439dc9ee73176a540,
-        type: 2}
-      propertyPath: armsSprite.Array.size
-      value: 16
-      objectReference: {fileID: 0}
     - target: {fileID: 224720254330027558, guid: c4a10151b716701439dc9ee73176a540,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -215,102 +210,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114492895444554076, guid: c4a10151b716701439dc9ee73176a540,
-        type: 2}
-      propertyPath: armsSprite.Array.data[0]
-      value: 
-      objectReference: {fileID: 21300000, guid: fb1ce7132de20764ea625d60231ef1d1,
-        type: 3}
-    - target: {fileID: 114492895444554076, guid: c4a10151b716701439dc9ee73176a540,
-        type: 2}
-      propertyPath: armsSprite.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: bd3d41400786e7140959de312c5dd846,
-        type: 3}
-    - target: {fileID: 114492895444554076, guid: c4a10151b716701439dc9ee73176a540,
-        type: 2}
-      propertyPath: armsSprite.Array.data[2]
-      value: 
-      objectReference: {fileID: 21300000, guid: 49fce2da347580648b02fa302fe491c9,
-        type: 3}
-    - target: {fileID: 114492895444554076, guid: c4a10151b716701439dc9ee73176a540,
-        type: 2}
-      propertyPath: armsSprite.Array.data[3]
-      value: 
-      objectReference: {fileID: 21300000, guid: 6587671ab49f1bd4da4c08fd4c3e3639,
-        type: 3}
-    - target: {fileID: 114492895444554076, guid: c4a10151b716701439dc9ee73176a540,
-        type: 2}
-      propertyPath: armsSprite.Array.data[4]
-      value: 
-      objectReference: {fileID: 21300000, guid: 2c9ff26e02937c941b340d1e623176ac,
-        type: 3}
-    - target: {fileID: 114492895444554076, guid: c4a10151b716701439dc9ee73176a540,
-        type: 2}
-      propertyPath: armsSprite.Array.data[5]
-      value: 
-      objectReference: {fileID: 21300000, guid: c5df88413ad90664fa3f71322e37cf3d,
-        type: 3}
-    - target: {fileID: 114492895444554076, guid: c4a10151b716701439dc9ee73176a540,
-        type: 2}
-      propertyPath: armsSprite.Array.data[6]
-      value: 
-      objectReference: {fileID: 21300000, guid: f37084d3ab695a5449aafaa153a50580,
-        type: 3}
-    - target: {fileID: 114492895444554076, guid: c4a10151b716701439dc9ee73176a540,
-        type: 2}
-      propertyPath: armsSprite.Array.data[7]
-      value: 
-      objectReference: {fileID: 21300000, guid: 72114b3689c5ade439f4a7a5ff2fb36e,
-        type: 3}
-    - target: {fileID: 114492895444554076, guid: c4a10151b716701439dc9ee73176a540,
-        type: 2}
-      propertyPath: armsSprite.Array.data[8]
-      value: 
-      objectReference: {fileID: 21300000, guid: 1fe36cfc32f783542b685aa591e9c3e7,
-        type: 3}
-    - target: {fileID: 114492895444554076, guid: c4a10151b716701439dc9ee73176a540,
-        type: 2}
-      propertyPath: armsSprite.Array.data[9]
-      value: 
-      objectReference: {fileID: 21300000, guid: 00364a980681d7a428eb3b8632983653,
-        type: 3}
-    - target: {fileID: 114492895444554076, guid: c4a10151b716701439dc9ee73176a540,
-        type: 2}
-      propertyPath: armsSprite.Array.data[10]
-      value: 
-      objectReference: {fileID: 21300000, guid: c3b75dce362414c43a7bc62b6e729656,
-        type: 3}
-    - target: {fileID: 114492895444554076, guid: c4a10151b716701439dc9ee73176a540,
-        type: 2}
-      propertyPath: armsSprite.Array.data[11]
-      value: 
-      objectReference: {fileID: 21300000, guid: dbe104186a083a346af9bfbe3f3de3b1,
-        type: 3}
-    - target: {fileID: 114492895444554076, guid: c4a10151b716701439dc9ee73176a540,
-        type: 2}
-      propertyPath: armsSprite.Array.data[12]
-      value: 
-      objectReference: {fileID: 21300000, guid: 21cade05b5aa39b4cacd14b1eade1947,
-        type: 3}
-    - target: {fileID: 114492895444554076, guid: c4a10151b716701439dc9ee73176a540,
-        type: 2}
-      propertyPath: armsSprite.Array.data[13]
-      value: 
-      objectReference: {fileID: 21300000, guid: 012bf06c332a6c54cb1f5766fe7f5f5b,
-        type: 3}
-    - target: {fileID: 114492895444554076, guid: c4a10151b716701439dc9ee73176a540,
-        type: 2}
-      propertyPath: armsSprite.Array.data[14]
-      value: 
-      objectReference: {fileID: 21300000, guid: d635f0e2a2aef2c458568e8efa39086c,
-        type: 3}
-    - target: {fileID: 114492895444554076, guid: c4a10151b716701439dc9ee73176a540,
-        type: 2}
-      propertyPath: armsSprite.Array.data[15]
-      value: 
-      objectReference: {fileID: 21300000, guid: f47e1d53cd11e1241aeebf397ba06548,
-        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c4a10151b716701439dc9ee73176a540, type: 2}
   m_IsPrefabParent: 0
@@ -622,55 +521,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 632575636}
---- !u!1 &830756764 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1228125387551886, guid: c4a10151b716701439dc9ee73176a540,
-    type: 2}
-  m_PrefabInternal: {fileID: 4149045}
---- !u!212 &830756765
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 830756764}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
-  m_MaskInteraction: 0
 --- !u!1001 &961269110
 Prefab:
   m_ObjectHideFlags: 0

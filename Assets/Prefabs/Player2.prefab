@@ -89,21 +89,22 @@ MonoBehaviour:
   name: Player 2
   order: 1
   armsSprite:
-  - {fileID: 21300000, guid: c8b604628a089f64aa3fa370c6cdf090, type: 3}
-  - {fileID: 21300000, guid: 7eae488a140cf42418bd2a371271a3c2, type: 3}
-  - {fileID: 21300000, guid: a281727d14c46164f91af8d58dcd754d, type: 3}
-  - {fileID: 0}
-  - {fileID: 21300000, guid: 6b863a2a7c313ec4681e020e388c8df6, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 21300000, guid: d70ff267169c3cb4699eca95c5acd047, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: a8fee7179dcea5b40b7484d6eec2e5ec, type: 3}
+  - {fileID: 21300000, guid: ca7fea07b262a7c4f8e21599e89713bd, type: 3}
+  - {fileID: 21300000, guid: f19f7775d6e6e9a4daad34bba39eb7d0, type: 3}
+  - {fileID: 21300000, guid: 78bbc8a3a99f8214da516709452977e2, type: 3}
+  - {fileID: 21300000, guid: 9dc8dada793e1564ba8de29369cda1bb, type: 3}
+  - {fileID: 21300000, guid: 3170f6f331ac21a40b334ec17470a46b, type: 3}
+  - {fileID: 21300000, guid: c0af5a7512d339c408a32064d62bb434, type: 3}
+  - {fileID: 21300000, guid: 71869988e2ffe2145ba1964ac54fb41a, type: 3}
+  - {fileID: 21300000, guid: 0de0d685a198f664187d7f8efca3f7b1, type: 3}
+  - {fileID: 21300000, guid: b47495315121e2e49a067499d012fd10, type: 3}
+  - {fileID: 21300000, guid: e446e8e2acbe9d349a167977255121c7, type: 3}
+  - {fileID: 21300000, guid: d7eb4d944a4d06547b0390b1b9327171, type: 3}
+  - {fileID: 21300000, guid: 8ba4cd38498ff6847b41252c02c62440, type: 3}
+  - {fileID: 21300000, guid: fc57b7d316c0c6e4d89381570e51fb08, type: 3}
+  - {fileID: 21300000, guid: 385efca3d33d7f24887389d698f18db3, type: 3}
+  - {fileID: 21300000, guid: ab0648796eb40684baa4fd02402e5fdd, type: 3}
   arms: 0
   score: 0
   scoreText: {fileID: 114608194761703512}
