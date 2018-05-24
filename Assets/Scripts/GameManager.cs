@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour {
     public GameObject heroBoardPrefab;
     public bool isGameEnds = false;
     public GAMELMODE gameMode;
+    public GameObject DrawMessagePrefab;
 
     // Jogador que está na vez
     private Player player;
@@ -140,7 +141,7 @@ public class GameManager : MonoBehaviour {
 
         } else
         {
-            // TODO: Draw message
+            this.winMessage = Instantiate(this.DrawMessagePrefab, this.mainCanvas);
         }
         
     }
