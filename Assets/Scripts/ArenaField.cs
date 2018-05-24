@@ -7,6 +7,7 @@ public class ArenaField : MonoBehaviour {
     public int column;
     public int row;
     public int arms;
+    private int spriteIndex = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -31,7 +32,7 @@ public class ArenaField : MonoBehaviour {
             Player player = manager.GetPlayer();
             Image img = GetComponent<Image>();
             img.color = Color.white;
-            img.sprite = player.armsSprite;
+            img.sprite = player.armsSprite[0];
             this.arms = player.arms;
             this.GetComponent<Button>().interactable = false;
             engine.SetArms(this.arms, this.arena, row, column);
@@ -43,10 +44,24 @@ public class ArenaField : MonoBehaviour {
     /// Pinta a campo com a cor do jogador
     /// </summary>
     /// <param name="color">Cor do jogador</param>
-    public void PaintMe(Color color)
+    public void PaintMe(Player player, Arena.DIRECTION dir)
     {
+        switch (dir)
+        {
+            case Arena.DIRECTION.horizontal:
+                this.spriteIndex |= 1;
+                break;
+            case Arena.DIRECTION.vertical:
+                this.spriteIndex |= 2;
+                break;
+            case Arena.DIRECTION.diagonalP:
+                this.spriteIndex |= 4;
+                break;
+            case Arena.DIRECTION.diagonalS:
+                this.spriteIndex |= 8;
+                break;
+        }
         Image img = GetComponent<Image>();
-        img.color = color;
-        img.sprite = null;
+        img.sprite = player.armsSprite[this.spriteIndex];
     }
 }

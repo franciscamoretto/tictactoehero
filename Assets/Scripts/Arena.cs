@@ -73,26 +73,26 @@ public class Arena : MonoBehaviour {
     /// <param name="dir">Direção da linha</param>
     public void PaintLine(int row, int col, DIRECTION dir)
     {
-        Color playerColor = GameManager.instance.GetPlayerColor();
+        Player player = GameManager.instance.GetPlayer();
         
         int n = GameEngine.NUM_ROW_COL - 1;
         foreach (ArenaField field in fields)
         {
             if (dir.Equals(DIRECTION.horizontal) && field.row == row)
             {
-                field.PaintMe(playerColor);
+                field.PaintMe(player, dir);
             }
             else if (dir.Equals(DIRECTION.vertical) && field.column == col)
             {
-                field.PaintMe(playerColor);
+                field.PaintMe(player, dir);
             }
             else if (dir.Equals(DIRECTION.diagonalP) && field.row == field.column)
             {
-                field.PaintMe(playerColor);
+                field.PaintMe(player, dir);
             }
             else if (dir.Equals(DIRECTION.diagonalS) && (field.row + field.column == n) )
             {
-                field.PaintMe(playerColor);
+                field.PaintMe(player, dir);
             }
         }
     }

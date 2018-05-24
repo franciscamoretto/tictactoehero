@@ -154,7 +154,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Player 1
   order: 0
-  armsSprite: {fileID: 21300000, guid: f682c89308b4f8b40a8603025e98f7ef, type: 3}
+  armsSprite:
+  - {fileID: 21300000, guid: f682c89308b4f8b40a8603025e98f7ef, type: 3}
+  - {fileID: 21300000, guid: f7d652e7d7cf1f944a0a8cec328ac5f0, type: 3}
+  - {fileID: 21300000, guid: 8540948f8cdb92e4287969de4dbb45ad, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 12908f6ea3349f94d9de944cf9c1b907, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: bfe0e7ec8b020f74f837c3e44892d4f7, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   arms: 0
   score: 0
   scoreText: {fileID: 114252372175536596}

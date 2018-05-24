@@ -13,7 +13,7 @@ public class Player : MonoBehaviour {
 
     public new string name;
     public int order = 0;
-    public Sprite armsSprite;
+    public Sprite[] armsSprite = new Sprite[15];
     [HideInInspector]
     public int arms = 0;
     public int score = 0;

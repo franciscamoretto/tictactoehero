@@ -88,7 +88,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Player 2
   order: 1
-  armsSprite: {fileID: 21300000, guid: c8b604628a089f64aa3fa370c6cdf090, type: 3}
+  armsSprite:
+  - {fileID: 21300000, guid: c8b604628a089f64aa3fa370c6cdf090, type: 3}
+  - {fileID: 21300000, guid: 7eae488a140cf42418bd2a371271a3c2, type: 3}
+  - {fileID: 21300000, guid: a281727d14c46164f91af8d58dcd754d, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 6b863a2a7c313ec4681e020e388c8df6, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: d70ff267169c3cb4699eca95c5acd047, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   arms: 0
   score: 0
   scoreText: {fileID: 114608194761703512}
