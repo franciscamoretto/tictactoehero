@@ -81,6 +81,7 @@ public class Arena : MonoBehaviour {
             if (dir.Equals(DIRECTION.horizontal) && field.row == row)
             {
                 field.PaintMe(player, dir);
+                FindObjectOfType<AudioManager>().Play("menubselect");
             }
             else if (dir.Equals(DIRECTION.vertical) && field.column == col)
             {
