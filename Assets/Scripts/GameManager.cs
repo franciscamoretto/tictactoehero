@@ -75,7 +75,8 @@ public class GameManager : MonoBehaviour {
                 this.players[p.order] = p;
             }
             this.boardArea = GameObject.FindGameObjectWithTag("MainCanvas").transform;            
-            
+            FindObjectOfType<AudioManager>().Play("menubselect");
+
             NewGame();
         }
     }
@@ -105,13 +106,17 @@ public class GameManager : MonoBehaviour {
         if (this.gameMode.Equals(GAMELMODE.quick))
         {
             this.board = Instantiate(quickBoardPrefab, this.boardArea);
+            FindObjectOfType<AudioManager>().Play("MainTheme");
         }
         else if (this.gameMode.Equals(GAMELMODE.normal))
         {
             this.board = Instantiate(normalBoardPrefab, this.boardArea);
+            FindObjectOfType<AudioManager>().Play("MainTheme");
         }
         else
         {
+            FindObjectOfType<AudioManager>().Play("MainTheme");
+            
             this.board = Instantiate(heroBoardPrefab, this.boardArea);
         }
         this.board.transform.SetAsFirstSibling();
