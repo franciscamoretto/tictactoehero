@@ -25,6 +25,7 @@ public class GameEngine : MonoBehaviour {
         if (instance == null)
         {
             instance = this;
+            FindObjectOfType<AudioManager>().Play("menubselect");
         }
         else if (instance != this)
         {
@@ -64,7 +65,7 @@ public class GameEngine : MonoBehaviour {
     {
         board[row + (NUM_ROW_COL * arena.row), col + (NUM_ROW_COL * arena.col)] = brasao;
         CheckMatchLine(arena, row, col);
-        
+        FindObjectOfType<AudioManager>().Play("menubselect");
 
     }
 
