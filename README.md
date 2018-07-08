@@ -118,7 +118,7 @@ O jogador pode optar como estratégia passar a vez ao término do tempo se o jog
 
 ![](https://raw.githubusercontent.com/xsery/tictactoehero/master/dev-artifacts/other/concept03.png)
 
-##Conceitos
+## Paleta de cores
 
 ![](https://raw.githubusercontent.com/xsery/tictactoehero/master/dev-artifacts/other/colors.png)
 
