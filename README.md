@@ -71,11 +71,11 @@ Quando um jogador conquista o objetivo, costuma-se riscar os três símbolos.
 A duração do tempo de jogo é indefinida. A partida finaliza quando não houver espaços vazios no tabuleiro. 
 O tempo de cada turno do jogador para fazer sua jogada está relacionado ao modo de jogo da partida, cada jogador possui:
 
-*Modo rápido: 15 segundos.
+* Modo rápido: 15 segundos.
 
-*Modo normal: 10 segundos.
+* Modo normal: 10 segundos.
 
-*Modo hero: 5 segundos.
+* Modo hero: 5 segundos.
 
 ## Pontuação
 
