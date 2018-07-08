@@ -133,12 +133,19 @@ O jogador pode optar como estratégia passar a vez ao término do tempo se o jog
 # Efeitos sonoros
 
 Os efeitos sonoros utilizados durante a partida de acordo com a lista abaixo:
- a. Posicionamento de marcação na arena: efeito sonoro para quando o jogador colocar uma marca na tela. 
+
+a. Posicionamento de marcação na arena: efeito sonoro para quando o jogador colocar uma marca na tela. 
+
 b. Erro: efeito sonoro que indica a tentativa de colocar uma marcação na posição incorreta em uma arena não habilitada.
+
 c. Vitória: efeito sonoro tocado quando o jogador vence a partida. 
+
 d. Empate: efeito sonoro tocado quando o jogador empata a partida. 
-e. Bônus: efeito sonoro de dados jogados quando um elemento aleatório for inserido no tabuleiro 
+
+e. Bônus: efeito sonoro de dados jogados quando um elemento aleatório for inserido no tabuleiro.
+
 f. Navegação: efeito sonoro de voz utilizado quando realizar navegação entre os menus do jogo.
+
 g. Música:  envolvente que remeta o jogador a uma batalha épica.
 
 
