@@ -1,37 +1,27 @@
 # Tic-Tac-Toe Hero
 
 ## Idéia
-
-Um jogo casual de estratégia que em que a sorte seja um dos elementos constituintes para qualquer plataforma móvel.
-
-
+Um jogo casual de estratégia que em que a sorte seja um dos elementos constituintes para qualquer plataforma móvel. 
 
 ## Sinópse
-
 O jogo Tic-tac-toe Hero é um jogo casual para aplicativos móveis baseado em um jogo
 clássico de papel e caneta, conhecido em vários países e no Brasil é popularmente chamado de jogo-da-velha cuja origem é incerta. 
-Neste jogo em específico existe um tabuleiro onde há várias arenas de jogo-da-velha, que são disputadas aleatoriamente. Os jogadores jogam em turnos alternados, a cada turno uma arena é sorteada e o jogador da vez marca com seu brasão (X ou O) a posição escolhida dentro da arena.
+Neste jogo em específico existe um tabuleiro onde há várias arenas de jogo-da-velha, que são disputadas aleatoriamente. Os jogadores jogam em turnos alternados, a cada turno uma arena é sorteada e o jogador da vez marca com seu brasão (X ou O) a posição escolhida dentro da arena.</div>
 
 O jogo possui três modos de jogo: o rápido, o normal e o hero. A diferença entre eles consiste em:
 1.	Número de arenas sendo quatro, seis e nove respectivamente.
 2.	O tempo que cada jogador tem para fazer sua jogada: 15, 10, e 5 segundos respectivamente.
 
-
 ## Plataforma
-
 Smart Phones: Android e iOS.
 
 ## Gênero
-
 Pluzze, casual e estratégia. 
 
 ## Público Alvo
-
 Jovens e Adultos na faixa de 18 a 36 anos que gostam de jogos casuais que envolvem estratégia. Similar aos perfil dos jogadores de Candy Crush Saga e Color Switch distribuídos para platformas móveis.
 
-
 ## Objetivo
-
 Fornecer um jogo casual para entretenimento em curtos períodos de tempo. Baseado no jogo da velha tradicional, o “TIC-TAC-TOE Hero” oferece opções de dificuldade que permitem aos jogadores escolher a dificuldade do jogo. O objetivo de cada jogador é através de suas jogadas (que consiste no posicionamento estratégico de seus brasões) obter mais pontos que o seu adversário, através das seguintes habilidades: estratégia, táticas, observação e sorte.
 
 
@@ -103,9 +93,13 @@ A cada 5 linhas, colunas ou diagonais completas um dos espaços em brancos do ta
 <imagem></imagem>
 
 ## Jogabilidade
-
 Os jogadores podem realizar suas jogadas através de toques na tela do dispositivo móvel, onde a partida esteja acontecendo.
-<imagem></imagem>
+Cada jogador é livre para colocar uma marca em qualquer posição no seu turno, desde que a posição esteja vazia (sem marcas). Ao colocar uma marca no tabuleiro, a jogada passa para o próximo jogador, e o processo é repetido até que o tabuleiro seja completamente preenchido. 
+A vitória é conquistada através da maior pontuação acumulada nos turnos após preenchido o tabuleiro. 
+É possível bloquear o oponente caso as peças em vertical, horizontal ou diagonal seja preenchido com um brasão para bloqueá-lo desde que o número da arena aleatória permita essa movimentação.
+Analisando o número de possibilidades de forma simplista, existem 362.880 (ou 9!) maneiras de se dispor cada brasão em uma única arena no tabuleiro, sem considerar jogadas vencedoras. Quando consideramos as combinações vencedoras, existem 255.168 jogos possíveis. Assumindo que 'Jogador A' inicia o jogo, se considerar que 'Jogador B' inicia, os resultados passam a ser inversos. 
+O jogador pode optar como estratégia passar a vez ao término do tempo se o jogador não realizar nenhuma jogada antes do término do tempo de seu turno. 
+
 
 # Arte
 
