@@ -6,7 +6,7 @@ Um jogo casual de estratégia que em que a sorte seja um dos elementos constitui
 ## Sinópse
 O jogo Tic-tac-toe Hero é um jogo casual para aplicativos móveis baseado em um jogo
 clássico de papel e caneta, conhecido em vários países e no Brasil é popularmente chamado de jogo-da-velha cuja origem é incerta. 
-Neste jogo em específico existe um tabuleiro onde há várias arenas de jogo-da-velha, que são disputadas aleatoriamente. Os jogadores jogam em turnos alternados, a cada turno uma arena é sorteada e o jogador da vez marca com seu brasão (X ou O) a posição escolhida dentro da arena.</div>
+Neste jogo em específico existe um tabuleiro onde há várias arenas de jogo-da-velha, que são disputadas aleatoriamente. Os jogadores jogam em turnos alternados, a cada turno uma arena é sorteada e o jogador da vez marca com seu brasão (X ou O) a posição escolhida dentro da arena.
 
 O jogo possui três modos de jogo: o rápido, o normal e o hero. A diferença entre eles consiste em:
 1.	Número de arenas sendo quatro, seis e nove respectivamente.
