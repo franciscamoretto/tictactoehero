@@ -1,12 +1,21 @@
 # Tic-Tac-Toe Hero
 
+## Idéia
+
+Um jogo casual de estratégia que em que a sorte seja um dos elementos constituintes para qualquer plataforma móvel.
+
+
+
 ## Sinópse
 
-O jogo Tic-tac-toe Hero é um jogo casual para aplicativos móveis baseado em um jogo clássico de papel e caneta, conhecido em vários países e no Brasil é popularmente conhecido como jogo-da-velha cuja origem é incerta. Neste jogo em específico há varias arenas de jogo-da-velha que são disputadas aleatoriamente. Dois jogadores, um a cada turno jogam em uma das arenas no tabuleiro. A arena é escolhida sorteando um número de 1 à 9 onde o jogador define sua posição em que irá colocar o seu brasão (X ou 0).
+O jogo Tic-tac-toe Hero é um jogo casual para aplicativos móveis baseado em um jogo
+clássico de papel e caneta, conhecido em vários países e no Brasil é popularmente chamado de jogo-da-velha cuja origem é incerta. 
+Neste jogo em específico existe um tabuleiro onde há várias arenas de jogo-da-velha, que são disputadas aleatoriamente. Os jogadores jogam em turnos alternados, a cada turno uma arena é sorteada e o jogador da vez marca com seu brasão (X ou O) a posição escolhida dentro da arena.
 
-O jogo possui três modos de jogo: rápido, normal e hero. A diferença entre eles consiste em:
-1. Número de arenas sendo quatro, seis e nove respectivamente.
-2. O tempo que cada jogador tem para fazer sua jogada, 15, 10, e 5 segundos respectivamente.
+O jogo possui três modos de jogo: o rápido, o normal e o hero. A diferença entre eles consiste em:
+1.	Número de arenas sendo quatro, seis e nove respectivamente.
+2.	O tempo que cada jogador tem para fazer sua jogada: 15, 10, e 5 segundos respectivamente.
+
 
 ## Plataforma
 
@@ -101,5 +110,15 @@ Os jogadores podem realizar suas jogadas através de toques na tela do dispositi
 # Arte
 
 # Efeitos sonoros
+
+Os efeitos sonoros utilizados durante a partida de acordo com a lista abaixo:
+ a. Posicionamento de marcação na arena: efeito sonoro para quando o jogador colocar uma marca na tela. 
+b. Erro: efeito sonoro que indica a tentativa de colocar uma marcação na posição incorreta em uma arena não habilitada.
+c. Vitória: efeito sonoro tocado quando o jogador vence a partida. 
+d. Empate: efeito sonoro tocado quando o jogador empata a partida. 
+e. Bônus: efeito sonoro de dados jogados quando um elemento aleatório for inserido no tabuleiro 
+f. Navegação: efeito sonoro de voz utilizado quando realizar navegação entre os menus do jogo.
+g. Música:  envolvente que remeta o jogador a uma batalha épica.
+
 
 
