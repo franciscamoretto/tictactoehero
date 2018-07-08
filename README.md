@@ -39,15 +39,22 @@ Fornecer um jogo casual para entretenimento em curtos períodos de tempo. Basead
 ## Regras
 
 Os jogadores dispõem de um tabuleiro que possui várias arenas, essas pode ser distribuidas das seguintes maneiras: 
+
 * Modo fácil: possui 4 arenas, dispostas em uma matriz 2x2 (duas linhas por duas colunas).
+
 * Modo nomal: possui 6 arenas, dispostas em uma matriz 2x3 (duas linhas por três colunas).
+
 * Modo hero: possui 9 arenas, dispostas em uma matriz 3x3 (três linhas por três colunas). 
+
 Cada arena é uma matriz de três linhas por três colunas.
 
 Dois jogadores escolhem uma marcação (brasão) cada um, geralmente um círculo (O) e um xis (X).
 Os jogadores jogam alternadamente por turno, ao começar o turno é escolhido um número aleatório:
+
 *Modo rápido: 1 à 4.
+
 *Modo normal: 1 à 6.
+
 *Modo hero: 1 à 9.
 
 Após da seleção do número, este corresponde à arena na qual o jogador deverá colocar um brasão em uma posição vazia.
