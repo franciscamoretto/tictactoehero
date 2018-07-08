@@ -151,6 +151,7 @@ g. Música:  envolvente que remeta o jogador a uma batalha épica.
 
 # Play
 
-[PLAY Route 666](route666/)
+
+[PLAY](xxx/)
 
 
