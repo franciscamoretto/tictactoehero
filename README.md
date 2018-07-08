@@ -17,7 +17,9 @@ clássico de papel e caneta, conhecido em vários países e no Brasil é popular
 Neste jogo em específico existe um tabuleiro onde há várias arenas de jogo-da-velha, que são disputadas aleatoriamente. Os jogadores jogam em turnos alternados, a cada turno uma arena é sorteada e o jogador da vez marca com seu brasão (X ou O) a posição escolhida dentro da arena.
 
 O jogo possui três modos de jogo: o rápido, o normal e o hero. A diferença entre eles consiste em:
+
 1.	Número de arenas sendo quatro, seis e nove respectivamente.
+
 2.	O tempo que cada jogador tem para fazer sua jogada: 15, 10, e 5 segundos respectivamente.
 
 ## Plataforma
@@ -51,11 +53,11 @@ Cada arena é uma matriz de três linhas por três colunas.
 Dois jogadores escolhem uma marcação (brasão) cada um, geralmente um círculo (O) e um xis (X).
 Os jogadores jogam alternadamente por turno, ao começar o turno é escolhido um número aleatório:
 
-*Modo rápido: 1 à 4.
+* Modo rápido: 1 à 4.
 
-*Modo normal: 1 à 6.
+* Modo normal: 1 à 6.
 
-*Modo hero: 1 à 9.
+* Modo hero: 1 à 9.
 
 Após da seleção do número, este corresponde à arena na qual o jogador deverá colocar um brasão em uma posição vazia.
 
@@ -70,7 +72,9 @@ A duração do tempo de jogo é indefinida. A partida finaliza quando não houve
 O tempo de cada turno do jogador para fazer sua jogada está relacionado ao modo de jogo da partida, cada jogador possui:
 
 *Modo rápido: 15 segundos.
+
 *Modo normal: 10 segundos.
+
 *Modo hero: 5 segundos.
 
 ## Pontuação
