@@ -3,6 +3,14 @@
 ## Idéia
 Um jogo casual de estratégia que em que a sorte seja um dos elementos constituintes para qualquer plataforma móvel. 
 
+![](https://raw.githubusercontent.com/xsery/tictactoehero/master/dev-artifacts/other/pic01.png)
+
+![](https://raw.githubusercontent.com/xsery/tictactoehero/master/dev-artifacts/other/pic02.png)
+
+![](https://raw.githubusercontent.com/xsery/tictactoehero/master/dev-artifacts/other/pic03.png)
+
+![](https://raw.githubusercontent.com/xsery/tictactoehero/master/dev-artifacts/other/pic04.png)
+
 ## Sinópse
 O jogo Tic-tac-toe Hero é um jogo casual para aplicativos móveis baseado em um jogo
 clássico de papel e caneta, conhecido em vários países e no Brasil é popularmente chamado de jogo-da-velha cuja origem é incerta. 
@@ -24,8 +32,9 @@ Jovens e Adultos na faixa de 18 a 36 anos que gostam de jogos casuais que envolv
 ## Objetivo
 Fornecer um jogo casual para entretenimento em curtos períodos de tempo. Baseado no jogo da velha tradicional, o “TIC-TAC-TOE Hero” oferece opções de dificuldade que permitem aos jogadores escolher a dificuldade do jogo. O objetivo de cada jogador é através de suas jogadas (que consiste no posicionamento estratégico de seus brasões) obter mais pontos que o seu adversário, através das seguintes habilidades: estratégia, táticas, observação e sorte.
 
-
 # Game Play
+
+![](https://raw.githubusercontent.com/xsery/tictactoehero/master/dev-artifacts/other/flow.png)
 
 ## Regras
 
@@ -46,6 +55,8 @@ Após da seleção do número, este corresponde à arena na qual o jogador dever
 O objetivo é conseguir três brasões em linha, quer horizontal, vertical ou diagonal em uma ou mais arenas. Ao mesmo tempo quando possível, impedir o adversário de completar uma linha, coluna ou diagonal na próxima jogada.
 Quando um jogador conquista o objetivo, costuma-se riscar os três símbolos.
 
+![](https://raw.githubusercontent.com/xsery/tictactoehero/master/dev-artifacts/other/prototypw.png)
+
 ## Tempo
 
 A duração do tempo de jogo é indefinida. A partida finaliza quando não houver espaços vazios no tabuleiro. 
@@ -55,7 +66,6 @@ O tempo de cada turno do jogador para fazer sua jogada está relacionado ao modo
 *Modo normal: 10 segundos.
 *Modo hero: 5 segundos.
 
-
 ## Pontuação
 
 O jogador pode obter pontuação ao completar três brasões em linha, quer horizontal, vertical ou diagonal. No final da partida serão atribuídos pontos para cada brasão extra que complete linha, quer horizontal, vertical ou diagonal que cruze uma nova arena.
@@ -64,44 +74,61 @@ A vitória é conquistada através da maior pontuação acumulada nos turnos ap�
 
 Analisando o número de possibilidades de forma simplista, existem 362.880 (ou 9!) maneiras de se dispor cada brasão em uma única arena no tabuleiro, sem considerar jogadas vencedoras. Quando consideramos as combinações vencedoras, existem 255.168 jogos possíveis. Assumindo que 'Jogador A' inicia o jogo, se considerar que 'Jogador B' inicia, os resultados passam a ser inversos. O jogador pode optar como estratégia passar a vez ao término do tempo se o jogador não realizar nenhuma jogada antes do término do tempo de seu turno. 
 
-
 ## Bônus
 
 O jogador pode obter pontuação extra ao final da partida para cada linha, coluna ou diagonal completas que envolvam mais de uma arena.
-<imagem></imagem> 
-
 A cada 3 linhas, colunas ou diagonais completas em uma mesma arena do tabuleiro o jogador pode obter uma pontuação bônus [X2] que multiplica por 2 os pontos do jogador por 3 turnos do respectivo jogador.
-
-<imagem></imagem>
 
 A cada 3 linhas, colunas ou diagonais completas em uma mesma arena do tabuleiro o jogador pode obter uma pontuação bônus [Pensa Rápido] que diminui o tempo do jogador adversário durante 5 turnos. O tempo que o jogador tem para fazer sua jogada, 7, 5, e 3 segundos respectivamente.
 
-<imagem></imagem> 
-
 A cada 5 linhas, colunas ou diagonais completas um dos espaços em brancos do tabuleiro será aleatoriamente escolhido como um espaço bônus [Troca-Troca] em que permite ao jogador trocar um brasão do adversário que não esteja pontuando em qualquer arena. Não é afetado pelo bônus cancelar.
-
-<imagem></imagem> 
 
 A cada 5 linhas, colunas ou diagonais completas um dos espaços em brancos do tabuleiro será aleatoriamente escolhido como um espaço bônus [Embaralhar] em que embaralha as arenas do tabuleiro caso um jogador o preencha com seu brasão primeiro, todos os brasões são embaralhados nas arenas. Não é afetado pelo bônus cancelar.
 
-<imagem></imagem>
-
 A cada 5 linhas, colunas ou diagonais completas um dos espaços em brancos do tabuleiro será aleatoriamente escolhido como um espaço bônus [Inverter] que caso um jogador o preencha com seu brasão primeiro, todos os brasões são invertidos sem a inversão de pontuação (i.e. os brasões do jogador A serão substituídos pelo jogado B e vice-versa).  Não é afetado pelo bônus cancelar.
-<imagem></imagem>
 
 A cada 5 linhas, colunas ou diagonais completas um dos espaços em brancos do tabuleiro será aleatoriamente escolhido como um espaço bônus [Interroper] que, cancela o efeito do último bonus aplicado do adversário se estiver ainda ativo.
-<imagem></imagem>
 
 ## Jogabilidade
 Os jogadores podem realizar suas jogadas através de toques na tela do dispositivo móvel, onde a partida esteja acontecendo.
+
 Cada jogador é livre para colocar uma marca em qualquer posição no seu turno, desde que a posição esteja vazia (sem marcas). Ao colocar uma marca no tabuleiro, a jogada passa para o próximo jogador, e o processo é repetido até que o tabuleiro seja completamente preenchido. 
+
+![](https://raw.githubusercontent.com/xsery/tictactoehero/master/dev-artifacts/other/screen04.png)
+
+![](https://raw.githubusercontent.com/xsery/tictactoehero/master/dev-artifacts/other/screen05.png)
+
+![](https://raw.githubusercontent.com/xsery/tictactoehero/master/dev-artifacts/other/screen06.png)
+
 A vitória é conquistada através da maior pontuação acumulada nos turnos após preenchido o tabuleiro. 
+
 É possível bloquear o oponente caso as peças em vertical, horizontal ou diagonal seja preenchido com um brasão para bloqueá-lo desde que o número da arena aleatória permita essa movimentação.
+
 Analisando o número de possibilidades de forma simplista, existem 362.880 (ou 9!) maneiras de se dispor cada brasão em uma única arena no tabuleiro, sem considerar jogadas vencedoras. Quando consideramos as combinações vencedoras, existem 255.168 jogos possíveis. Assumindo que 'Jogador A' inicia o jogo, se considerar que 'Jogador B' inicia, os resultados passam a ser inversos. 
 O jogador pode optar como estratégia passar a vez ao término do tempo se o jogador não realizar nenhuma jogada antes do término do tempo de seu turno. 
 
 
 # Arte
+
+## Conceitos
+
+![](https://raw.githubusercontent.com/xsery/tictactoehero/master/dev-artifacts/other/concept01.png)
+
+![](https://raw.githubusercontent.com/xsery/tictactoehero/master/dev-artifacts/other/concept02.png)
+
+![](https://raw.githubusercontent.com/xsery/tictactoehero/master/dev-artifacts/other/concept03.png)
+
+##Conceitos
+
+![](https://raw.githubusercontent.com/xsery/tictactoehero/master/dev-artifacts/other/colors.png)
+
+## Intefaces
+
+![](https://raw.githubusercontent.com/xsery/tictactoehero/master/dev-artifacts/other/screen01.png)
+
+![](https://raw.githubusercontent.com/xsery/tictactoehero/master/dev-artifacts/other/screen02.png)
+
+![](https://raw.githubusercontent.com/xsery/tictactoehero/master/dev-artifacts/other/screen03.png)
 
 # Efeitos sonoros
 
@@ -114,5 +141,9 @@ e. Bônus: efeito sonoro de dados jogados quando um elemento aleatório for inse
 f. Navegação: efeito sonoro de voz utilizado quando realizar navegação entre os menus do jogo.
 g. Música:  envolvente que remeta o jogador a uma batalha épica.
 
+
+# Play
+
+[PLAY Route 666](route666/)
 
 
