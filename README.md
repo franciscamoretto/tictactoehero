@@ -2,7 +2,7 @@
 
 ## Idea
 
-casual game of strategy and luck for mobile devices
+Casual game of strategy and luck for mobile devices
 
 ![](https://raw.githubusercontent.com/xsery/tictactoehero/master/dev-artifacts/other/pic01.png)
 
