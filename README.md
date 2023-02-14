@@ -1,7 +1,8 @@
 # Tic-Tac-Toe Hero
 
-## Idéia
-Um jogo casual de estratégia que em que a sorte seja um dos elementos constituintes para qualquer plataforma móvel. 
+## Idea
+
+casual game of strategy and luck for mobile devices
 
 ![](https://raw.githubusercontent.com/xsery/tictactoehero/master/dev-artifacts/other/pic01.png)
 
@@ -11,99 +12,106 @@ Um jogo casual de estratégia que em que a sorte seja um dos elementos constitui
 
 ![](https://raw.githubusercontent.com/xsery/tictactoehero/master/dev-artifacts/other/pic04.png)
 
-## Sinópse
-O jogo Tic-tac-toe Hero é um jogo casual para aplicativos móveis baseado em um jogo
-clássico de papel e caneta, conhecido em vários países e no Brasil é popularmente chamado de jogo-da-velha cuja origem é incerta. 
-Neste jogo em específico existe um tabuleiro onde há várias arenas de jogo-da-velha, que são disputadas aleatoriamente. Os jogadores jogam em turnos alternados, a cada turno uma arena é sorteada e o jogador da vez marca com seu brasão (X ou O) a posição escolhida dentro da arena.
+## Synopsis
 
-O jogo possui três modos de jogo: o rápido, o normal e o hero. A diferença entre eles consiste em:
+The Tic-tac-toe Hero game is a casual game for mobile applications based on a classic pen and paper game, known in several countries and in Brazil it is popularly called tic-tac-toe whose origin is uncertain.
 
-1.	Número de arenas sendo quatro, seis e nove respectivamente.
+In this specific game there is a board where there are several tic-tac-toe arenas, which are played randomly. Players play in alternating turns, each turn an arena is drawn and the player in turn marks with his coat of arms (X or O) the chosen position within the arena.
 
-2.	O tempo que cada jogador tem para fazer sua jogada: 15, 10, e 5 segundos respectivamente.
+The game has three game modes: fast, normal and hero. The difference between them consists of:
 
-## Plataforma
-Smart Phones: Android e iOS.
+1. Number of arenas are: four, six and nine respectively.
 
-## Gênero
-Pluzze, casual e estratégia. 
+2. The time of each player has to make their move: 15, 10, and 5 seconds respectively.
 
-## Público Alvo
-Jovens e Adultos na faixa de 18 a 36 anos que gostam de jogos casuais que envolvem estratégia. Similar aos perfil dos jogadores de Candy Crush Saga e Color Switch distribuídos para platformas móveis.
+## Plataform
+Smart phones: Android e iOS.
 
-## Objetivo
-Fornecer um jogo casual para entretenimento em curtos períodos de tempo. Baseado no jogo da velha tradicional, o “TIC-TAC-TOE Hero” oferece opções de dificuldade que permitem aos jogadores escolher a dificuldade do jogo. O objetivo de cada jogador é através de suas jogadas (que consiste no posicionamento estratégico de seus brasões) obter mais pontos que o seu adversário, através das seguintes habilidades: estratégia, táticas, observação e sorte.
+## Game Genres
+
+Pluzze, casual strategy. 
+
+## Target Audience
+
+Youth and Adults aged 18 to 36 who enjoy casual games involving strategy. Similar to the player profiles of Candy Crush Saga and Color Switch distributed for mobile platforms.
+
+## Objective
+
+Provide a casual game for entertainment in short periods of time. Based on the traditional tic-tac-toe game, “TIC-TAC-TOE Hero” offers difficulty options that allow players to choose the difficulty of the game. The goal of each player is through their moves (which consists of the strategic placement of their coats of arms) to obtain more points than their opponent, through the following skills: strategy, tactics, observation and luck.
 
 # Game Play
 
 ![](https://raw.githubusercontent.com/xsery/tictactoehero/master/dev-artifacts/other/flow.png)
 
-## Regras
+## Rules
 
-Os jogadores dispõem de um tabuleiro que possui várias arenas, essas pode ser distribuidas das seguintes maneiras: 
+Players have a board that has several arenas, these can be distributed in the following ways:
 
-* Modo fácil: possui 4 arenas, dispostas em uma matriz 2x2 (duas linhas por duas colunas).
+* Easy mode: it has 4 arenas, arranged in a 2x2 matrix (two rows by two columns).
 
-* Modo nomal: possui 6 arenas, dispostas em uma matriz 2x3 (duas linhas por três colunas).
+* Normal mode: has 6 arenas, arranged in a 2x3 matrix (two rows by three columns).
 
-* Modo hero: possui 9 arenas, dispostas em uma matriz 3x3 (três linhas por três colunas). 
+* Hero mode: has 9 arenas, arranged in a 3x3 matrix (three rows by three columns).
 
-Cada arena é uma matriz de três linhas por três colunas.
+Each arena is a three-row-by-three-column matrix.
 
-Dois jogadores escolhem uma marcação (brasão) cada um, geralmente um círculo (O) e um xis (X).
-Os jogadores jogam alternadamente por turno, ao começar o turno é escolhido um número aleatório:
+Two players each choose a marking (coat of arms), usually a circle (O) or cross (X).
+Players play alternately per turn, at the beginning of the turn a random number is chosen for the selection in which arena the player must perform the action:
 
-* Modo rápido: 1 à 4.
+* Quick mode: 1 to 4.
 
-* Modo normal: 1 à 6.
+* Normal mode: 1 to 6.
 
-* Modo hero: 1 à 9.
+* Hero mode: 1 to 9.
 
-Após da seleção do número, este corresponde à arena na qual o jogador deverá colocar um brasão em uma posição vazia.
+After selecting the number, this corresponds to the arena in which the player must place a coat of arms in an empty position.
 
-O objetivo é conseguir três brasões em linha, quer horizontal, vertical ou diagonal em uma ou mais arenas. Ao mesmo tempo quando possível, impedir o adversário de completar uma linha, coluna ou diagonal na próxima jogada.
-Quando um jogador conquista o objetivo, costuma-se riscar os três símbolos.
+The objective is to get three coats of arms in a row, either horizontally, vertically or diagonally in one or more arenas. At the same time when possible, prevent the opponent from completing a row, column or diagonal on the next move.
+When a player achieves the goal, it is customary to scratch the three symbols.
 
 ![](https://raw.githubusercontent.com/xsery/tictactoehero/master/dev-artifacts/other/prototypw.png)
 
-## Tempo
+## Time
 
-A duração do tempo de jogo é indefinida. A partida finaliza quando não houver espaços vazios no tabuleiro. 
-O tempo de cada turno do jogador para fazer sua jogada está relacionado ao modo de jogo da partida, cada jogador possui:
+The duration of game time is indefinite. The game ends when there are no empty spaces on the board.
+The time of each player's turn to make his move is related to the game mode of the match, each player has:
 
-* Modo rápido: 15 segundos.
+* Quick mode: 15 seconds.
 
-* Modo normal: 10 segundos.
+* Normal mode: 10 seconds.
 
-* Modo hero: 5 segundos.
+* Hero mode: 5 seconds.
 
 ## Pontuação
 
-O jogador pode obter pontuação ao completar três brasões em linha, quer horizontal, vertical ou diagonal. No final da partida serão atribuídos pontos para cada brasão extra que complete linha, quer horizontal, vertical ou diagonal que cruze uma nova arena.
-Cada jogador é livre para colocar uma marca em qualquer posição no seu turno, desde que a posição esteja vazia (sem marcas). Ao colocar uma marca no tabuleiro, a jogada passa para o próximo jogador, aonde o processo é repetido até que um dos jogadores vença, ou até o tabuleiro ser completamente preenchido, situação na qual pode ocorrer um empate. 
-A vitória é conquistada através da maior pontuação acumulada nos turnos após preenchido o tabuleiro. É possível bloquear o oponente caso as peças em vertical, horizontal ou diagonal seja preenchido com um brasão para bloqueá-lo desde que o número da arena aleatória permita essa movimentação.
+Score
 
-Analisando o número de possibilidades de forma simplista, existem 362.880 (ou 9!) maneiras de se dispor cada brasão em uma única arena no tabuleiro, sem considerar jogadas vencedoras. Quando consideramos as combinações vencedoras, existem 255.168 jogos possíveis. Assumindo que 'Jogador A' inicia o jogo, se considerar que 'Jogador B' inicia, os resultados passam a ser inversos. O jogador pode optar como estratégia passar a vez ao término do tempo se o jogador não realizar nenhuma jogada antes do término do tempo de seu turno. 
+The player can get score by completing three coats of arms in a row, either horizontally, vertically or diagonally. At the end of the game, points will be awarded for each extra coat of arms that completes a line, whether horizontal, vertical or diagonal, that crosses a new arena.
+Each player is free to place a mark in any position on their turn, as long as the position is empty (no marks). By placing a mark on the board, the move passes to the next player, where the process is repeated until one of the players wins, or until the board is completely filled, in which case a tie may occur.
+Victory is achieved through the highest accumulated score in turns after filling the board. It is possible to block the opponent if the pieces in vertical, horizontal or diagonal are filled with a coat of arms to block him as long as the random arena number allows this movement.
 
-## Bônus
+Analyzing the number of possibilities in a simplistic way, there are 362,880 (or 9!) ways to arrange each coat of arms in a single arena on the board, without considering winning moves. When we consider winning combinations, there are 255,168 possible games. Assuming that 'Player A' starts the game, if we consider that 'Player B' starts, the results are inverse. The player can choose as a strategy to pass the turn at the end of the time if the player does not make any move before the end of the time of his turn.
 
-O jogador pode obter pontuação extra ao final da partida para cada linha, coluna ou diagonal completas que envolvam mais de uma arena.
-A cada 3 linhas, colunas ou diagonais completas em uma mesma arena do tabuleiro o jogador pode obter uma pontuação bônus [X2] que multiplica por 2 os pontos do jogador por 3 turnos do respectivo jogador.
+## Bonus
 
-A cada 3 linhas, colunas ou diagonais completas em uma mesma arena do tabuleiro o jogador pode obter uma pontuação bônus [Pensa Rápido] que diminui o tempo do jogador adversário durante 5 turnos. O tempo que o jogador tem para fazer sua jogada, 7, 5, e 3 segundos respectivamente.
+The player can get extra points at the end of the game for each completed row, column or diagonal involving more than one arena.
+For every 3 complete lines, columns or diagonals in the same arena on the board, the player can obtain a bonus score [X2] that multiplies the player's points by 2 for 3 turns of the respective player.
 
-A cada 5 linhas, colunas ou diagonais completas um dos espaços em brancos do tabuleiro será aleatoriamente escolhido como um espaço bônus [Troca-Troca] em que permite ao jogador trocar um brasão do adversário que não esteja pontuando em qualquer arena. Não é afetado pelo bônus cancelar.
+For every 3 complete lines, columns or diagonals in the same arena on the board, the player can obtain a bonus score [Think Fast] that decreases the opponent player's time for 5 turns. The time the player has to make his move, 7, 5, and 3 seconds respectively.
 
-A cada 5 linhas, colunas ou diagonais completas um dos espaços em brancos do tabuleiro será aleatoriamente escolhido como um espaço bônus [Embaralhar] em que embaralha as arenas do tabuleiro caso um jogador o preencha com seu brasão primeiro, todos os brasões são embaralhados nas arenas. Não é afetado pelo bônus cancelar.
+Every 5 completed lines, columns or diagonals one of the blank spaces on the board will be randomly chosen as a bonus space [Trade-Trade] which allows the player to exchange an opponent's crest that is not scoring in any arena. Not affected by cancel bonus.
 
-A cada 5 linhas, colunas ou diagonais completas um dos espaços em brancos do tabuleiro será aleatoriamente escolhido como um espaço bônus [Inverter] que caso um jogador o preencha com seu brasão primeiro, todos os brasões são invertidos sem a inversão de pontuação (i.e. os brasões do jogador A serão substituídos pelo jogado B e vice-versa).  Não é afetado pelo bônus cancelar.
+Every 5 completed rows, columns or diagonals one of the blank spaces on the board will be randomly chosen as a bonus space [Shuffle] which shuffles the arenas on the board if a player fills it with his crest first, all crests are shuffled in the arenas . Not affected by cancel bonus.
 
-A cada 5 linhas, colunas ou diagonais completas um dos espaços em brancos do tabuleiro será aleatoriamente escolhido como um espaço bônus [Interroper] que, cancela o efeito do último bonus aplicado do adversário se estiver ainda ativo.
+Every 5 completed lines, columns or diagonals one of the blank spaces on the board will be randomly chosen as a bonus space [Flip] that if a player fills it with his coat of arms first, all coats of arms are reversed without the inversion of punctuation (i.e. the player A's coat of arms will be replaced by player B's and vice versa). Not affected by cancel bonus.
 
-## Jogabilidade
-Os jogadores podem realizar suas jogadas através de toques na tela do dispositivo móvel, onde a partida esteja acontecendo.
+Every 5 completed rows, columns or diagonals one of the blank spaces on the board will be randomly chosen as an [Interroper] bonus space, which cancels the effect of the opponent's last applied bonus if it is still active.
 
-Cada jogador é livre para colocar uma marca em qualquer posição no seu turno, desde que a posição esteja vazia (sem marcas). Ao colocar uma marca no tabuleiro, a jogada passa para o próximo jogador, e o processo é repetido até que o tabuleiro seja completamente preenchido. 
+## Gameplay
+
+Players can perform their moves by touching the screen of the mobile device, where the match is taking place.
+
+Each player is free to place a mark in any position on their turn, as long as the position is empty (no marks). By placing a mark on the board, the turn passes to the next player, and the process is repeated until the board is completely filled.
 
 ![](https://raw.githubusercontent.com/xsery/tictactoehero/master/dev-artifacts/other/screen04.png)
 
@@ -111,17 +119,17 @@ Cada jogador é livre para colocar uma marca em qualquer posição no seu turno,
 
 ![](https://raw.githubusercontent.com/xsery/tictactoehero/master/dev-artifacts/other/screen06.png)
 
-A vitória é conquistada através da maior pontuação acumulada nos turnos após preenchido o tabuleiro. 
+Victory is achieved through the highest accumulated score in turns after filling the board.
 
-É possível bloquear o oponente caso as peças em vertical, horizontal ou diagonal seja preenchido com um brasão para bloqueá-lo desde que o número da arena aleatória permita essa movimentação.
+It is possible to block the opponent if the pieces in vertical, horizontal or diagonal are filled with a coat of arms to block him as long as the random arena number allows this movement.
 
-Analisando o número de possibilidades de forma simplista, existem 362.880 (ou 9!) maneiras de se dispor cada brasão em uma única arena no tabuleiro, sem considerar jogadas vencedoras. Quando consideramos as combinações vencedoras, existem 255.168 jogos possíveis. Assumindo que 'Jogador A' inicia o jogo, se considerar que 'Jogador B' inicia, os resultados passam a ser inversos. 
-O jogador pode optar como estratégia passar a vez ao término do tempo se o jogador não realizar nenhuma jogada antes do término do tempo de seu turno. 
+Analyzing the number of possibilities in a simplistic way, there are 362,880 (or 9!) ways to arrange each coat of arms in a single arena on the board, without considering winning moves. When we consider winning combinations, there are 255,168 possible games. Assuming that 'Player A' starts the game, if we consider that 'Player B' starts, the results are inverse.
+The player can choose as a strategy to pass the turn at the end of the time if the player does not make any move before the end of the time of his turn.
 
 
-# Arte
+# Art
 
-## Conceitos
+## Concepts
 
 ![](https://raw.githubusercontent.com/xsery/tictactoehero/master/dev-artifacts/other/concept01.png)
 
@@ -129,11 +137,11 @@ O jogador pode optar como estratégia passar a vez ao término do tempo se o jog
 
 ![](https://raw.githubusercontent.com/xsery/tictactoehero/master/dev-artifacts/other/concept03.png)
 
-## Paleta de cores
+## Color palette
 
 ![](https://raw.githubusercontent.com/xsery/tictactoehero/master/dev-artifacts/other/colors.png)
 
-## Intefaces
+## UI
 
 ![](https://raw.githubusercontent.com/xsery/tictactoehero/master/dev-artifacts/other/screen01.png)
 
@@ -141,23 +149,23 @@ O jogador pode optar como estratégia passar a vez ao término do tempo se o jog
 
 ![](https://raw.githubusercontent.com/xsery/tictactoehero/master/dev-artifacts/other/screen03.png)
 
-# Efeitos sonoros
+# Sound Effects
 
-Os efeitos sonoros utilizados durante a partida de acordo com a lista abaixo:
+The sound effects used during the match according to the list below:
 
-a. Posicionamento de marcação na arena: efeito sonoro para quando o jogador colocar uma marca na tela. 
+The. Marker placement in the arena: sound effect for when the player places a mark on the screen.
 
-b. Erro: efeito sonoro que indica a tentativa de colocar uma marcação na posição incorreta em uma arena não habilitada.
+B. Error: sound effect that indicates the attempt to place a marker in the wrong position in an unenabled arena.
 
-c. Vitória: efeito sonoro tocado quando o jogador vence a partida. 
+w. Victory: sound effect played when the player wins the match.
 
-d. Empate: efeito sonoro tocado quando o jogador empata a partida. 
+d. Tie: sound effect played when the player ties the match.
 
-e. Bônus: efeito sonoro de dados jogados quando um elemento aleatório for inserido no tabuleiro.
+e. Bonus: sound effect of dice thrown when a random element is inserted on the board.
 
-f. Navegação: efeito sonoro de voz utilizado quando realizar navegação entre os menus do jogo.
+f. Navigation: voice sound effect used when navigating between game menus.
 
-g. Música:  envolvente que remeta o jogador a uma batalha épica.
+g. Music: engaging that sends the player to an epic battle.
 
 
 # Play
