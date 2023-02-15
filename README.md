@@ -41,7 +41,7 @@ Provide a casual game for entertainment in short periods of time. Based on the t
 
 # Game Play
 
-![](https://raw.githubusercontent.com/xsery/tictactoehero/master/dev-artifacts/other/flow.png)
+![](https://github.com/franciscamoretto/tictactoehero/blob/master/dev-artifacts/T3H.jpg)
 
 ## Rules
 
